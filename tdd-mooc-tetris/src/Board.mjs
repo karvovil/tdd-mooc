@@ -18,6 +18,8 @@ export class Board {
   
   drop(arg){
     this.currentBlock = arg
+    this.currentBlockX = 1
+    this.currentBlockY = 0
     const newState = `.${this.currentBlock}.\n...\n...\n`;
     if(newState.includes('Y') ){
       throw new Error("already falling");
