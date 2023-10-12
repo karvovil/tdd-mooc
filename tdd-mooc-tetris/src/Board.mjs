@@ -2,6 +2,7 @@ export class Board {
   width;
   height;
   state;
+  currentBlock;
 
   constructor(width, height) {
     this.width = width;
@@ -13,11 +14,17 @@ export class Board {
     return this.state;
   }
   
-  drop(arg) {
-    this.state = `.X.\n...\n...\n`;
+  drop(arg){
+    this.currentBlock = arg
+    const newState = `.${this.currentBlock}.\n...\n...\n`;
+    if(newState.includes('Y') ){
+      throw new Error("already falling");
+    }else{
+      this.state = newState
+    }
   }
-  
+
   tick() {
-    this.state = `...\n.X.\n...\n`;
+    this.state = `...\n.${this.currentBlock}.\n...\n`;
   }
 }
