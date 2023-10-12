@@ -16,4 +16,8 @@ export class Board {
   drop(arg) {
     this.state = `.X.\n...\n...\n`;
   }
+  
+  tick() {
+    this.state = `...\n.X.\n...\n`;
+  }
 }
