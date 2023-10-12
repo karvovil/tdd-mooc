@@ -3,6 +3,8 @@ export class Board {
   height;
   state;
   currentBlock;
+  currentBlockX;
+  currentBlockY;
 
   constructor(width, height) {
     this.width = width;
