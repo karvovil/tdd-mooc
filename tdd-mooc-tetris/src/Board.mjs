@@ -12,7 +12,7 @@ export class Board {
     this.state = `...\n...\n...\n`;
   }
   
-  toString() {
+  toString() {    
     return this.state;
   }
   
@@ -31,12 +31,14 @@ export class Board {
   tick() {
     if (this.state == `...\n.${this.currentBlock}.\n...\n`){
       this.state = `...\n...\n.${this.currentBlock}.\n`;
+      this.currentBlockY++;
     }else{
       this.state = `...\n.${this.currentBlock}.\n...\n`;
+      this.currentBlockY++;
     }
   }
 
   hasFalling() {
-    return true
+    return true;
   }
 }
