@@ -13,7 +13,11 @@ export class Board {
   }
   
   toString() {    
-    return this.state;
+    let s = ""
+    for(let h = 0; h < this.height; h++){
+      s += this.currentBlockY === h ? '.X.\n' : '...\n';
+    }
+    return s;
   }
   
   drop(arg){
