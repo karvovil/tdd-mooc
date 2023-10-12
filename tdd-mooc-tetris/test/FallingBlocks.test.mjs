@@ -10,11 +10,11 @@ describe("Falling blocks", () => {
   it("The board starts empty", () => {
     expect(board.toString()).to.equalShape(
       `...
-       ...
-       ...`
+      ...
+      ...`
     );
-  });
-
+  })
+  
   describe("When a block is dropped", () => {
     beforeEach(() => {
       board.drop("X");
@@ -25,20 +25,19 @@ describe("Falling blocks", () => {
         `.X.
         ...
         ...`
-        );
-      });
-      
-  })/*
-    xit("it moves down one row per tick", () => {
-      board.tick();
-
-      expect(board.toString()).to.equalShape(
-        `...
-         .X.
-         ...`
       );
     });
-
+    
+    it("it moves down one row per tick", () => {
+      board.tick();
+      
+      expect(board.toString()).to.equalShape(
+        `...
+        .X.
+        ...`
+      );
+    });
+      
     xit("at most one block may be falling at a time", () => {
       const before = board.toString();
       expect(() => board.drop("Y")).to.throw("already falling");
@@ -46,7 +45,7 @@ describe("Falling blocks", () => {
       expect(after).to.equal(before);
     });
   });
-  */
+
 
   /*
   describe("When a block reaches the bottom", () => {
