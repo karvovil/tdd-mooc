@@ -25,6 +25,14 @@ export class Board {
   }
 
   tick() {
-    this.state = `...\n.${this.currentBlock}.\n...\n`;
+    if (this.state == `...\n.${this.currentBlock}.\n...\n`){
+      this.state = `...\n...\n.${this.currentBlock}.\n`;
+    }else{
+      this.state = `...\n.${this.currentBlock}.\n...\n`;
+    }
+  }
+
+  hasFalling() {
+    return true
   }
 }
