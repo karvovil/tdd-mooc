@@ -15,20 +15,20 @@ describe("Falling blocks", () => {
     );
   });
 
-  /*
   describe("When a block is dropped", () => {
     beforeEach(() => {
       board.drop("X");
     });
-
+    
     it("it starts from the top middle", () => {
       expect(board.toString()).to.equalShape(
         `.X.
-         ...
-         ...`
-      );
-    });
-
+        ...
+        ...`
+        );
+      });
+      
+  })/*
     xit("it moves down one row per tick", () => {
       board.tick();
 
