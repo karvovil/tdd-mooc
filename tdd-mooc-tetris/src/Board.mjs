@@ -9,6 +9,7 @@ export class Board {
   currentBlock;
   currentBlockX;
   currentBlockY;
+  current;
   falling;
 
   constructor(width, height) {
