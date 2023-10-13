@@ -42,9 +42,6 @@ export class Board {
                       x:1,
                       y:0}
       this.falling = true;
-      this.currentBlock = arg
-      this.currentBlockX = 1
-      this.currentBlockY = 0
     }
   }
 
