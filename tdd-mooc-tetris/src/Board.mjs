@@ -2,13 +2,6 @@ export class Board {
   width;
   height;
   stoppedBlocks;
-  previousBlocks;
-  previousBlock;
-  previousBlockX;
-  previousBlockY;
-  currentBlock;
-  currentBlockX;
-  currentBlockY;
   current;
   falling;
 
