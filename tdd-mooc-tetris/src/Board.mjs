@@ -40,7 +40,10 @@ export class Board {
   }
 
   tick() {
-    if(this.current.y >= this.height -1){
+    if(
+      this.current.y >= this.height -1 ||
+      this.stoppedBlocks.some(b => b.y -1 === this.current.y)
+    ){
       this.falling = false;
       this.stoppedBlocks.push(this.current)
     }else{
