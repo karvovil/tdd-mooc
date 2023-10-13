@@ -1,6 +1,9 @@
 export class Board {
   width;
   height;
+  previousBlock;
+  previousBlockX;
+  previousBlockY;
   currentBlock;
   currentBlockX;
   currentBlockY;
@@ -15,13 +18,20 @@ export class Board {
   toString() {    
     let s = ""
     for(let h = 0; h < this.height; h++){
-      s += this.currentBlockY === h ? '.X.\n' : '...\n';
+      if (this.previousBlockY === h){
+        s +=  `.${this.previousBlock}.\n`;
+      }else if(this.currentBlockY ===  h){
+        s += `.${this.currentBlock }.\n` ;
+      }
+      else{
+        s+='...\n'
+      }
     }
     return s;
   }
   
   drop(arg){
-    if(arg === 'Y') {
+    if(this.falling) {
       throw new Error("already falling");
     }else{
       this.falling = true;
@@ -34,6 +44,9 @@ export class Board {
   tick() {
     if(this.currentBlockY >= this.height -1){
       this.falling = false;
+      this.previousBlock = this.currentBlock ;
+      this.previousBlockX= this.currentBlockX ;
+      this.previousBlockY= this.currentBlockY;
     }else{
       this.currentBlockY++;
     }
