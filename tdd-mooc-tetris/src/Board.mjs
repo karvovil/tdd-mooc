@@ -1,6 +1,8 @@
 export class Board {
   width;
   height;
+  stoppedBlocks;
+  previousBlocks;
   previousBlock;
   previousBlockX;
   previousBlockY;
