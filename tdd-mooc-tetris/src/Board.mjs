@@ -51,12 +51,8 @@ export class Board {
   tick() {
     if(this.current.y >= this.height -1){
       this.falling = false;
-      this.previousBlock = this.currentBlock ;
-      this.previousBlockX= this.currentBlockX ;
-      this.previousBlockY= this.currentBlockY;
       this.stoppedBlocks.push(this.current)
     }else{
-      this.currentBlockY++;
       this.current.y++;
     }
   }
