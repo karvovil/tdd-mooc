@@ -17,9 +17,9 @@ export class Board {
     for(let h = 0; h < this.height; h++){
       const block = this.stoppedBlocks.find(b => b.y === h)
       if (block){
-        s +=  `.${block.block}.\n`;
+        s +=  `.${block.name}.\n`;
       }else if(this.current?.y ===  h){
-        s += `.${this.current.block }.\n` ;
+        s += `.${this.current.name }.\n` ;
       }
       else{
         s+='...\n'
@@ -32,7 +32,7 @@ export class Board {
     if(this.falling) {
       throw new Error("already falling");
     }else{
-      this.current = {block: arg,
+      this.current = {name: arg,
                       x:1,
                       y:0}
       this.falling = true;
