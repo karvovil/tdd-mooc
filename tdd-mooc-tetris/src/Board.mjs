@@ -54,9 +54,10 @@ export class Board {
       this.previousBlock = this.currentBlock ;
       this.previousBlockX= this.currentBlockX ;
       this.previousBlockY= this.currentBlockY;
-      this.stoppedBlocks += this.current
+      this.stoppedBlocks.push(this.current)
     }else{
       this.currentBlockY++;
+      this.current.y++;
     }
   }
 
