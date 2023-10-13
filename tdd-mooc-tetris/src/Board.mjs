@@ -15,6 +15,7 @@ export class Board {
     this.width = width;
     this.height = height;
     this.falling = false;
+    this.stoppedBlocks = [];
   }
   
   toString() {    
