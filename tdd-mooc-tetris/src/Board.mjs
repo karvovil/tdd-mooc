@@ -38,6 +38,9 @@ export class Board {
     if(this.falling) {
       throw new Error("already falling");
     }else{
+      this.current = {block: arg,
+                      x:1,
+                      y:0}
       this.falling = true;
       this.currentBlock = arg
       this.currentBlockX = 1
