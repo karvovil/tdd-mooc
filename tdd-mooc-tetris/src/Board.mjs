@@ -1,7 +1,6 @@
 export class Board {
   width;
   height;
-  state;
   currentBlock;
   currentBlockX;
   currentBlockY;
@@ -9,7 +8,6 @@ export class Board {
   constructor(width, height) {
     this.width = width;
     this.height = height;
-    this.state = `...\n...\n...\n`;
   }
   
   toString() {    
