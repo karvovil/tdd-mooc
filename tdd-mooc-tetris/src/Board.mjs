@@ -27,8 +27,6 @@ export class Board {
     const newState = `.${this.currentBlock}.\n...\n...\n`;
     if(newState.includes('Y') ){
       throw new Error("already falling");
-    }else{
-      this.state = newState
     }
   }
 
