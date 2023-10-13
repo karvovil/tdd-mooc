@@ -22,10 +22,10 @@ export class Board {
   toString() {    
     let s = ""
     for(let h = 0; h < this.height; h++){
-      if (this.previousBlockY === h){
-        s +=  `.${this.previousBlock}.\n`;
-      }else if(this.currentBlockY ===  h){
-        s += `.${this.currentBlock }.\n` ;
+      if (this.stoppedBlocks.some(b => b.y === h)){
+        s +=  `.X.\n`;
+      }else if(this.current?.y ===  h){
+        s += `.${this.current.block }.\n` ;
       }
       else{
         s+='...\n'
