@@ -2,11 +2,11 @@ export class RotatingShape {
   wut;
 
   constructor(str) {
-    this.wut = str;
+    this.wut = str.replace("     ", "").replace("     ", "") + "\n";
   }
 
   toString(){
-    return this.wut.replace("     ", "").replace("     ", "") + "\n";
+    return this.wut;
   }
   
 }
