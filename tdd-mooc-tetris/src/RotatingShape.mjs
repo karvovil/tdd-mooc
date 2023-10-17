@@ -2,7 +2,11 @@ export class RotatingShape {
   wut;
 
   constructor(str) {
-    this.wut = str.replace("     ", "").replace("     ", "") + "\n";
+    let newStr = str;
+    while( newStr.indexOf('     ') >= 0 ){
+      newStr = newStr.replace('     ', '');
+    }
+    this.wut = newStr + '\n'
   }
 
   toString(){
