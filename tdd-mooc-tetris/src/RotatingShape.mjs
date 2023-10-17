@@ -21,9 +21,9 @@ export class RotatingShape {
   rotateLeft() {
     const lines = this.wut.split("\n");
     let rotatedLines = [];
-    rotatedLines.push(lines.reduce((a, l) => a + l.charAt(2), '') + '\n');
-    rotatedLines.push(lines.reduce((a, l) => a + l.charAt(1), '') + '\n');
-    rotatedLines.push(lines.reduce((a, l) => a + l.charAt(0), '') + '\n');
+    for(let i = 2; i >= 0; i--){
+      rotatedLines.push(lines.reduce((a, l) => a + l.charAt(i), '') + '\n');
+    }
     return rotatedLines.join('');
   }
 }
