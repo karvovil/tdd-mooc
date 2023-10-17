@@ -17,12 +17,13 @@ export class RotatingShape {
     rotatedLines.push(lines.reduce((a, l) => a + l.charAt(2), '').split('').reverse().join('')  + '\n');
     return rotatedLines.join('');
   }
-
+  
   rotateLeft() {
     const lines = this.wut.split("\n");
-    const r1 = lines.reduce((a, l) => a + l.charAt(2), '') + '\n';
-    const r2 = lines.reduce((a, l) => a + l.charAt(1), '') + '\n';
-    const r3 = lines.reduce((a, l) => a + l.charAt(0), '') + '\n';
-    return r1+r2+r3;
+    let rotatedLines = [];
+    rotatedLines.push(lines.reduce((a, l) => a + l.charAt(2), '') + '\n');
+    rotatedLines.push(lines.reduce((a, l) => a + l.charAt(1), '') + '\n');
+    rotatedLines.push(lines.reduce((a, l) => a + l.charAt(0), '') + '\n');
+    return rotatedLines.join('');
   }
 }
