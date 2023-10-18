@@ -43,4 +43,7 @@ export class RotatingShape {
     }
     return new RotatingShape(rotatedLines.join(''));
   }
+  rotateI(){
+    
+  }
 }
