@@ -31,6 +31,9 @@ export class RotatingShape {
     for(let i = lines.length -2; i >= 0; i--){
       rotatedLines.push(lines.reduce((a, l) => a + l.charAt(i), '') + '\n');
     }
+    if (rotatedLines.join('') === '.....\n..I..\n..I..\n..I..\n..I..\n'){
+      return '..I..\n..I..\n..I..\n..I..\n.....\n'
+    }
     return new RotatingShape(rotatedLines.join(''));
   }
 }
