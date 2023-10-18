@@ -18,11 +18,7 @@ export class RotatingShape {
   
   rotateRight() {
     if (this.wut.split("I").length > 3){
-      if (this.wut === '..I..\n..I..\n..I..\n..I..\n.....\n'){
-        return new RotatingShape('.....\n.....\nIIII.\n.....\n.....\n')
-      }else if (this.wut === '.....\n.....\nIIII.\n.....\n.....\n'){
-        return new RotatingShape('..I..\n..I..\n..I..\n..I..\n.....\n')
-      }
+      return this.rotateI();
     }
     const lines = this.wut.split("\n");
     let rotatedLines = [];
@@ -34,11 +30,7 @@ export class RotatingShape {
   
   rotateLeft() {
     if (this.wut.split("I").length > 3){
-      if (this.wut === '..I..\n..I..\n..I..\n..I..\n.....\n'){
-        return new RotatingShape('.....\n.....\nIIII.\n.....\n.....\n')
-      }else if (this.wut === '.....\n.....\nIIII.\n.....\n.....\n'){
-        return new RotatingShape('..I..\n..I..\n..I..\n..I..\n.....\n')
-      }
+      return this.rotateI();
     }
     const lines = this.wut.split("\n");
     let rotatedLines = [];
