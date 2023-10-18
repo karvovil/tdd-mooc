@@ -6,7 +6,10 @@ export class RotatingShape {
     while( newStr.indexOf('     ') >= 0 ){
       newStr = newStr.replace('     ', '');
     }
-    this.wut = newStr + '\n'
+    if (newStr.slice(-1) !== '\n'){
+      newStr = newStr + '\n'
+    }
+    this.wut = newStr
   }
 
   toString(){
@@ -19,7 +22,7 @@ export class RotatingShape {
     for(let i = 0; i < lines.length-1; i++){
       rotatedLines.push(lines.reduce((a, l) => a + l.charAt(i), '').split('').reverse().join('')  + '\n');
     }
-    return rotatedLines.join('');
+    return new RotatingShape(rotatedLines.join(''));
   }
   
   rotateLeft() {
@@ -28,6 +31,6 @@ export class RotatingShape {
     for(let i = lines.length -2; i >= 0; i--){
       rotatedLines.push(lines.reduce((a, l) => a + l.charAt(i), '') + '\n');
     }
-    return rotatedLines.join('');
+    return new RotatingShape(rotatedLines.join(''));
   }
 }
