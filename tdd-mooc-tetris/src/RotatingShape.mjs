@@ -1,5 +1,5 @@
 export class RotatingShape {
-  wut;
+  shape;
 
   constructor(str) {
     let newStr = str;
@@ -9,18 +9,18 @@ export class RotatingShape {
     if (newStr.slice(-1) !== '\n'){
       newStr = newStr + '\n'
     }
-    this.wut = newStr
+    this.shape = newStr
   }
 
   toString(){
-    return this.wut;
+    return this.shape;
   }
   
   rotateRight() {
-    if (this.wut.split("I").length > 3){
+    if (this.shape.split("I").length > 3){
       return this.rotateI();
     }
-    const lines = this.wut.split("\n");
+    const lines = this.shape.split("\n");
     let rotatedLines = [];
     for(let i = 0; i < lines.length-1; i++){
       rotatedLines.push(lines.reduce((a, l) => a + l.charAt(i), '').split('').reverse().join('')  + '\n');
@@ -29,10 +29,10 @@ export class RotatingShape {
   }
   
   rotateLeft() {
-    if (this.wut.split("I").length > 3){
+    if (this.shape.split("I").length > 3){
       return this.rotateI();
     }
-    const lines = this.wut.split("\n");
+    const lines = this.shape.split("\n");
     let rotatedLines = [];
     for(let i = lines.length -2; i >= 0; i--){
       rotatedLines.push(lines.reduce((a, l) => a + l.charAt(i), '') + '\n');
@@ -40,9 +40,9 @@ export class RotatingShape {
     return new RotatingShape(rotatedLines.join(''));
   }
   rotateI(){
-    if (this.wut === '..I..\n..I..\n..I..\n..I..\n.....\n'){
+    if (this.shape === '..I..\n..I..\n..I..\n..I..\n.....\n'){
       return new RotatingShape('.....\n.....\nIIII.\n.....\n.....\n')
-    }else if (this.wut === '.....\n.....\nIIII.\n.....\n.....\n'){
+    }else if (this.shape === '.....\n.....\nIIII.\n.....\n.....\n'){
       return new RotatingShape('..I..\n..I..\n..I..\n..I..\n.....\n')
     }
   }
