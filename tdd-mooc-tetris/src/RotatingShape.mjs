@@ -20,6 +20,9 @@ export class RotatingShape {
     if (this.shape.split("I").length > 3){
       return this.rotateI();
     }
+    if (this.shape.split("O").length > 3){
+      return this;
+    }
     const lines = this.shape.split("\n");
     let rotatedLines = [];
     for(let i = 0; i < lines.length-1; i++){
@@ -31,6 +34,9 @@ export class RotatingShape {
   rotateLeft() {
     if (this.shape.split("I").length > 3){
       return this.rotateI();
+    }
+    if (this.shape.split("O").length > 3){
+      return this;
     }
     const lines = this.shape.split("\n");
     let rotatedLines = [];
