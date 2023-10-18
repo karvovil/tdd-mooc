@@ -44,6 +44,10 @@ export class RotatingShape {
     return new RotatingShape(rotatedLines.join(''));
   }
   rotateI(){
-    
+    if (this.wut === '..I..\n..I..\n..I..\n..I..\n.....\n'){
+      return new RotatingShape('.....\n.....\nIIII.\n.....\n.....\n')
+    }else if (this.wut === '.....\n.....\nIIII.\n.....\n.....\n'){
+      return new RotatingShape('..I..\n..I..\n..I..\n..I..\n.....\n')
+    }
   }
 }
