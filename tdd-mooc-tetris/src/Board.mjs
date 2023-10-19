@@ -59,7 +59,9 @@ export class Board {
   hasCoord(a, c1){
     return a.some(c => this.equal(c, c1));
   }
-
+  hasIntersection(a1, a2){
+    return a1.some(c => this.hasCoord(a2, c))
+  }
   hasFalling() {
     return this.falling;
   }
