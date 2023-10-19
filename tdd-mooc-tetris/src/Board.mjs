@@ -32,8 +32,11 @@ export class Board {
     if(this.falling) {
       throw new Error("already falling");
     }else{
-      this.current = {name: arg,
-                      coords:   [{x:1,y:0}]
+      this.current = {name:   arg,
+                      coords: [{
+                                x:(this.width/2),
+                                y:0
+                              },]
                      }
       this.falling = true;
     }
