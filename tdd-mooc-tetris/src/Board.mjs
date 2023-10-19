@@ -47,7 +47,7 @@ export class Board {
       this.falling = false;
       this.stoppedBlocks.push(this.current)
     }else{
-      this.current.coords[0].y++;
+      this.current.coords.map(coord =>  coord.y++);
     }
   }
 
