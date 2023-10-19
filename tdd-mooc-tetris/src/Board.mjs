@@ -34,7 +34,11 @@ export class Board {
     }else{
       this.current = {name: arg,
                       x:1,
-                      y:0}
+                      y:0,
+                      xy:   {x:1,
+                             y:0
+                            }
+                     }
       this.falling = true;
     }
   }
