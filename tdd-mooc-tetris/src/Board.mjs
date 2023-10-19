@@ -15,10 +15,10 @@ export class Board {
   toString() {    
     let s = ""
     for(let h = 0; h < this.height; h++){
-      const block = this.stoppedBlocks.find(b => b.xy.y === h)
+      const block = this.stoppedBlocks.find(b => b.xy[0].y === h)
       if (block){
         s +=  `.${block.name}.\n`;
-      }else if(this.current?.xy.y ===  h){
+      }else if(this.current?.xy[0].y ===  h){
         s += `.${this.current.name }.\n` ;
       }
       else{
@@ -33,9 +33,7 @@ export class Board {
       throw new Error("already falling");
     }else{
       this.current = {name: arg,
-                      xy:   {x:1,
-                             y:0
-                            }
+                      xy:   [{x:1,y:0}]
                      }
       this.falling = true;
     }
@@ -43,13 +41,13 @@ export class Board {
 
   tick() {
     if(
-      this.current.xy.y >= this.height -1 ||
-      this.stoppedBlocks.some(b => b.xy.y -1 === this.current.xy.y)
+      this.current.xy[0].y >= this.height -1 ||
+      this.stoppedBlocks.some(b => b.xy[0].y -1 === this.current.xy[0].y)
     ){
       this.falling = false;
       this.stoppedBlocks.push(this.current)
     }else{
-      this.current.xy.y++;
+      this.current.xy[0].y++;
     }
   }
 
