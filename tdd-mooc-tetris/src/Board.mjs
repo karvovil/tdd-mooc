@@ -15,10 +15,10 @@ export class Board {
   toString() {    
     let s = ""
     for(let h = 0; h < this.height; h++){
-      const block = this.stoppedBlocks.find(b => b.y === h)
+      const block = this.stoppedBlocks.find(b => b.xy.y === h)
       if (block){
         s +=  `.${block.name}.\n`;
-      }else if(this.current?.y ===  h){
+      }else if(this.current?.xy.y ===  h){
         s += `.${this.current.name }.\n` ;
       }
       else{
@@ -45,13 +45,13 @@ export class Board {
 
   tick() {
     if(
-      this.current.y >= this.height -1 ||
-      this.stoppedBlocks.some(b => b.y -1 === this.current.y)
+      this.current.xy.y >= this.height -1 ||
+      this.stoppedBlocks.some(b => b.xy.y -1 === this.current.xy.y)
     ){
       this.falling = false;
       this.stoppedBlocks.push(this.current)
     }else{
-      this.current.y++;
+      this.current.xy.y++;
     }
   }
 
