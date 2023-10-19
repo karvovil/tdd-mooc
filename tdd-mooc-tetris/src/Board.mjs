@@ -33,8 +33,6 @@ export class Board {
       throw new Error("already falling");
     }else{
       this.current = {name: arg,
-                      x:1,
-                      y:0,
                       xy:   {x:1,
                              y:0
                             }
