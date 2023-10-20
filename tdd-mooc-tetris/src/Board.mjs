@@ -45,10 +45,12 @@ export class Board {
   tick() {
     if(
       this.current.coords[0].y >= this.height -1 ||
-        this.stoppedBlocks.some(b => b.coords[0].y -1 === this.current.coords[0].y)
-    ){
-      this.falling = false;
-      this.stoppedBlocks.push(this.current)
+        this.stoppedBlocks.some(b => b.coords[0].y -1 === this.current.coords[0].y &&
+          b.coords[0].x === this.current.coords[0].x)
+      ){
+        this.falling = false;
+        this.stoppedBlocks.push(this.current)
+        console.log(this.toString());
     }else{
       this.current.coords.map(coord =>  coord.y++);
     }
