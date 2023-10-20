@@ -15,15 +15,7 @@ export class Board {
   toString() {    
     let s = ""
     for(let h = 0; h < this.height; h++){
-      const block = this.stoppedBlocks.find(b => b.coords.y === h)
-      if (block){
-        s +=  `.${block.name}.\n`;
-      }else if(this.current?.coords.y ===  h){
-        s += `.${this.current.name }.\n` ;
-      }
-      else{
-        s+='...\n'
-      }
+      s += this.printRow(h)
     }
     return s;
   }
