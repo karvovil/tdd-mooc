@@ -67,7 +67,8 @@ export class Board {
   hasFalling() {
     return this.falling;
   }
-  printRow(){
-    
+  printRow(h){
+    for(let x = 0; x < this.width; x++){
+    }
   }
 }
