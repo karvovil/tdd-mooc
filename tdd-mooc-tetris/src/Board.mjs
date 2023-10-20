@@ -73,8 +73,8 @@ export class Board {
       const block = (this.stoppedBlocks + this.current).find(
         b => b.x === x && b.y === y 
       );
-      row += block.name
+      row ? row += block.name : row += '.'     
     }
-    return row + '\n'
+    return row + '\n';
   }
 }
