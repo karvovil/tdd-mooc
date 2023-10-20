@@ -67,8 +67,11 @@ export class Board {
   hasFalling() {
     return this.falling;
   }
-  printRow(h){
+  printRow(y){
     for(let x = 0; x < this.width; x++){
+      const block = (this.stoppedBlocks + this.current).find(
+        b => b.x === x && b.y === y 
+      );
     }
   }
 }
