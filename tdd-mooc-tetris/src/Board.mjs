@@ -33,8 +33,8 @@ export class Board {
       throw new Error("already falling");
     }else{
       this.current = {name:   arg,
-                      coords: {x:(this.width/2),
-                               y:0
+                      coords: {x: Math.floor(this.width/2),
+                               y: 0
                               }
                      }
       this.falling = true;
@@ -49,7 +49,6 @@ export class Board {
       ){
         this.falling = false;
         this.stoppedBlocks.push(this.current)
-        console.log(this.toString());
     }else{
       this.current.coords.y++;
     }
@@ -70,9 +69,9 @@ export class Board {
     let row = '';
     for(let x = 0; x < this.width; x++){
       const block = [...this.stoppedBlocks, this.current].find(
-        b => b.x === x && b.y === y 
+        b => b?.coords.x === x && b?.coords.y === y 
       );
-      block ? row += block.name : row += '.'     
+      block ? row += block.name : row += '.'
     }
     return row + '\n';
   }
