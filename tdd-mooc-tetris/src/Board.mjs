@@ -68,10 +68,12 @@ export class Board {
     return this.falling;
   }
   printRow(y){
+    row = '';
     for(let x = 0; x < this.width; x++){
       const block = (this.stoppedBlocks + this.current).find(
         b => b.x === x && b.y === y 
       );
+      row += block.name
     }
   }
 }
