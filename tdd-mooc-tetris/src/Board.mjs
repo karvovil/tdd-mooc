@@ -75,5 +75,6 @@ export class Board {
       );
       row += block.name
     }
+    return row + '\n'
   }
 }
