@@ -46,7 +46,7 @@ export class Board {
   tick() {
     const nextCoords = this.current.coords.map(({ x, y }) => ({ x: x, y: y+1 }))
     if(
-      this.current.coords[0].y >= this.height -1 ||
+      this.current.coords.some (c => c.y >= this.height -1) ||
       this.hasIntersection(this.stoppedBlocks.flatMap(b => b.coords ), nextCoords)
       ){
         this.falling = false;
