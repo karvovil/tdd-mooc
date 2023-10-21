@@ -37,13 +37,13 @@ export class Board {
     const nextCoords = this.current.coords.map(({ x, y }) => ({ x: x, y: y+1 }))
     if(
       this.current.coords[0].y >= this.height -1 ||
-        this.stoppedBlocks.some(b => b.coords[0].y -1 === this.current.coords[0].y &&
-          b.coords[0].x === this.current.coords[0].x)
+      this.hasIntersection(this.stoppedBlocks.flatMap(b => b.coords ), nextCoords)
       ){
         this.falling = false;
         this.stoppedBlocks.push(this.current)
-    }else{
-      this.current.coords[0].y++;
+        
+      }else{
+        this.current.coords = nextCoords;
     }
   }
   equal(c1, c2){
