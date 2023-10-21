@@ -93,4 +93,7 @@ export class Board {
   center(){
     return this.width % 2 == 0 ? Math.floor(this.width/2)-1 : Math.floor(this.width/2)
   }
+  shapeCoords(){
+    
+  }
 }
