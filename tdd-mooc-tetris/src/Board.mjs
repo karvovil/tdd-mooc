@@ -40,18 +40,18 @@ export class Board {
       this.current = {name: 'T',
                       coords: [
                         {
-                          x: Math.floor(this.width/2)-1,
+                          x: this.center(),
                           y: 0},
                         {
-                          x: Math.floor(this.width/2)-2,
+                          x: this.center()-1,
                           y: 1
                         },
                         {
-                          x: Math.floor(this.width/2)-1,
+                          x: this.center(),
                           y: 1
                         },
                         {
-                          x: Math.floor(this.width/2),
+                          x: this.center()+1,
                           y: 1}
                       ]
       }
@@ -91,6 +91,6 @@ export class Board {
     return this.falling;
   }
   center(){
-    width % 2 == 0 ? Math.floor(this.width/2)-1 : Math.floor(this.width/2)
+    return this.width % 2 == 0 ? Math.floor(this.width/2)-1 : Math.floor(this.width/2)
   }
 }
