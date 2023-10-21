@@ -5,6 +5,7 @@ export class Board {
   height;
   stoppedBlocks;
   current;
+  currentShape;
   falling;
 
   constructor(width, height) {
@@ -38,6 +39,8 @@ export class Board {
     if(this.falling) {
       throw new Error("already falling");
     }else if(arg === Tetromino.T_SHAPE){
+      this.currentShape = Tetromino.T_SHAPE
+      this.currentPosition = {x: this.center(), y: 0}
       this.current = {name: 'T', coords: this.shapeCoords() }
     }else{
       this.current = {name: arg,
