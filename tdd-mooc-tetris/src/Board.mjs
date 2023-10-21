@@ -1,3 +1,5 @@
+import { Tetromino } from "./Tetromino.mjs";
+
 export class Board {
   width;
   height;
@@ -31,15 +33,36 @@ export class Board {
   }
   
   drop(arg){
+    let coords;
     if(this.falling) {
       throw new Error("already falling");
+    }else if(arg === Tetromino.T_SHAPE){
+      this.current = {name: 'T',
+                      coords: [
+                        {
+                          x: Math.floor(this.width/2)-1,
+                          y: 0},
+                        {
+                          x: Math.floor(this.width/2)-2,
+                          y: 1
+                        },
+                        {
+                          x: Math.floor(this.width/2)-1,
+                          y: 1
+                        },
+                        {
+                          x: Math.floor(this.width/2),
+                          y: 1}
+                      ]
+      }
     }else{
-      this.current = {name:   arg,
-                      coords: [{x: Math.floor(this.width/2),
-                               y: 0
-                              }]
-                     }
+      this.current = {name: arg,
+                      coords: [{
+                        x: Math.floor(this.width/2),
+                        y: 0}]
+      }
       this.falling = true;
+      console.log(this.toString());
     }
   }
 
