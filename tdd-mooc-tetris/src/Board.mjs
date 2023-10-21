@@ -61,7 +61,7 @@ export class Board {
     let row = '';
     for(let x = 0; x < this.width; x++){
       const block = [...this.stoppedBlocks, this.current].find(
-        b => b?.coords[0].x === x && b?.coords[0].y === y 
+        b => b?.coords.some(coord => coord.x === x && coord.y === y) 
       );
       block ? row += block.name : row += '.'
     }
