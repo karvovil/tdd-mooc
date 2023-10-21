@@ -29,6 +29,7 @@ export class Board {
       );
       block ? row += block.name : row += '.'
     }
+
     return row + '\n';
   }
   
@@ -37,28 +38,11 @@ export class Board {
     if(this.falling) {
       throw new Error("already falling");
     }else if(arg === Tetromino.T_SHAPE){
-      this.current = {name: 'T',
-                      coords: [
-                        {
-                          x: this.center(),
-                          y: 0},
-                        {
-                          x: this.center()-1,
-                          y: 1
-                        },
-                        {
-                          x: this.center(),
-                          y: 1
-                        },
-                        {
-                          x: this.center()+1,
-                          y: 1}
-                      ]
-      }
+      this.current = {name: 'T', coords: this.shapeCoords() }
     }else{
       this.current = {name: arg,
                       coords: [{
-                        x: Math.floor(this.width/2),
+                        x: this.center(),
                         y: 0}]
       }
       this.falling = true;
@@ -94,6 +78,23 @@ export class Board {
     return this.width % 2 == 0 ? Math.floor(this.width/2)-1 : Math.floor(this.width/2)
   }
   shapeCoords(){
-    
+    const coords = [
+      {
+        x: this.center(),
+        y: 0},
+      {
+        x: this.center()-1,
+        y: 1
+      },
+      {
+        x: this.center(),
+        y: 1
+      },
+      {
+        x: this.center()+1,
+        y: 1
+      }
+    ]
+      return coords;
   }
 }
