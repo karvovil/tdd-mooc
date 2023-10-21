@@ -25,9 +25,9 @@ export class Board {
       throw new Error("already falling");
     }else{
       this.current = {name:   arg,
-                      coords: {x: Math.floor(this.width/2),
+                      coords: [{x: Math.floor(this.width/2),
                                y: 0
-                              }
+                              }]
                      }
       this.falling = true;
     }
@@ -35,14 +35,14 @@ export class Board {
 
   tick() {
     if(
-      this.current.coords.y >= this.height -1 ||
-        this.stoppedBlocks.some(b => b.coords.y -1 === this.current.coords.y &&
-          b.coords.x === this.current.coords.x)
+      this.current.coords[0].y >= this.height -1 ||
+        this.stoppedBlocks.some(b => b.coords[0].y -1 === this.current.coords[0].y &&
+          b.coords[0].x === this.current.coords[0].x)
       ){
         this.falling = false;
         this.stoppedBlocks.push(this.current)
     }else{
-      this.current.coords.y++;
+      this.current.coords[0].y++;
     }
   }
   equal(c1, c2){
@@ -61,7 +61,7 @@ export class Board {
     let row = '';
     for(let x = 0; x < this.width; x++){
       const block = [...this.stoppedBlocks, this.current].find(
-        b => b?.coords.x === x && b?.coords.y === y 
+        b => b?.coords[0].x === x && b?.coords[0].y === y 
       );
       block ? row += block.name : row += '.'
     }
