@@ -62,7 +62,6 @@ export class Board {
                         y: 0}]
       }
       this.falling = true;
-      console.log(this.toString());
     }
   }
 
@@ -90,5 +89,8 @@ export class Board {
   }
   hasFalling() {
     return this.falling;
+  }
+  center(){
+    width % 2 == 0 ? Math.floor(this.width/2)-1 : Math.floor(this.width/2)
   }
 }
