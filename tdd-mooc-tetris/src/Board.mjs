@@ -19,6 +19,16 @@ export class Board {
     }
     return s;
   }
+  printRow(y){
+    let row = '';
+    for(let x = 0; x < this.width; x++){
+      const block = [...this.stoppedBlocks, this.current].find(
+        b => b?.coords.some(coord => coord.x === x && coord.y === y) 
+      );
+      block ? row += block.name : row += '.'
+    }
+    return row + '\n';
+  }
   
   drop(arg){
     if(this.falling) {
@@ -57,15 +67,5 @@ export class Board {
   }
   hasFalling() {
     return this.falling;
-  }
-  printRow(y){
-    let row = '';
-    for(let x = 0; x < this.width; x++){
-      const block = [...this.stoppedBlocks, this.current].find(
-        b => b?.coords.some(coord => coord.x === x && coord.y === y) 
-      );
-      block ? row += block.name : row += '.'
-    }
-    return row + '\n';
   }
 }
