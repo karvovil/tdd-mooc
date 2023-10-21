@@ -34,6 +34,7 @@ export class Board {
   }
 
   tick() {
+    const nextCoords = this.current.coords.map(({ x, y }) => ({ x: x, y: y+1 }))
     if(
       this.current.coords[0].y >= this.height -1 ||
         this.stoppedBlocks.some(b => b.coords[0].y -1 === this.current.coords[0].y &&
