@@ -38,9 +38,7 @@ export class Board {
     if(this.falling) {
       throw new Error("already falling");
     }else if(arg === Tetromino.T_SHAPE){
-      this.current = this.blockToBoard(this.shapeToBlock(Tetromino.T_SHAPE.toString()));
-//      console.log(this.blockToBoard(this.shapeToBlock(Tetromino.T_SHAPE.toString())).coords);
-
+      this.current = this.shapeToBlock(Tetromino.T_SHAPE.toString());
     }else{
       this.current = {name: arg,
                       coords: [{
@@ -93,12 +91,12 @@ export class Board {
           }
         }        
       }
-    return {name, coords}
-  }
-  blockToBoard(block){
-    const newCoords = block.coords.map(({x,y}) => (
-      { x: x + this.center() -1, y: y }
-    ));
-    return {...block, coords: newCoords};
+    return {
+      name: name,
+      coords: coords.map(({x,y}) => ({
+        x: x + this.center() -1,
+        y: y 
+      }))
+    }
   }
 }
