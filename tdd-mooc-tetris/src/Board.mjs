@@ -13,6 +13,7 @@ export class Board {
     this.height = height;
     this.falling = false;
     this.stoppedBlocks = [];
+    console.log(this.shapeToCoords());
   }
   
   toString() {    
@@ -102,7 +103,11 @@ export class Board {
   }
   shapeToCoords(){
     let coords = [];
-    
+      for (let x = 0; x < this.width; x++) {
+        for (let y = 0; y < this.height; y++) {
+          coords.push({x, y});
+        }        
+      }
     return coords
   }
 }
