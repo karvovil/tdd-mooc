@@ -38,9 +38,7 @@ export class Board {
     if(this.falling) {
       throw new Error("already falling");
     }else if(arg === Tetromino.T_SHAPE){
-      this.currentShape = Tetromino.T_SHAPE
-      this.currentPosition = {x: this.center(), y: 0}
-      this.current = {name: 'T', coords: this.shapeCoords() }
+      this.current = this.blockToBoard(this.shapeToBlock(Tetromino.T_SHAPE.toString()));
 //      console.log(this.blockToBoard(this.shapeToBlock(Tetromino.T_SHAPE.toString())).coords);
 
     }else{
