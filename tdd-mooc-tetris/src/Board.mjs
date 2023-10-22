@@ -75,7 +75,9 @@ export class Board {
     return this.falling;
   }
   center(){
-    return this.width % 2 == 0 ? Math.floor(this.width/2)-1 : Math.floor(this.width/2)
+    return this.width % 2 == 0
+      ? Math.floor(this.width/2)-1
+      : Math.floor(this.width/2)
   }
 
   shapeToBlock(shape){
@@ -84,13 +86,13 @@ export class Board {
     let name;
     for (let y = 0; y < rows.length; y++) {
       for (let x = 0; x < rows[y].length; x++) {
-          const charAtXY = rows[y].charAt(x)
-          if(charAtXY  != '.'){ 
-            coords.push({x, y});
-            name = charAtXY;
-          }
-        }        
-      }
+        const charAtXY = rows[y].charAt(x)
+        if(charAtXY  != '.'){ 
+          coords.push({x, y});
+          name = charAtXY;
+        }
+      }        
+    }
     return {
       name: name,
       coords: coords.map(({x,y}) => ({
