@@ -13,6 +13,7 @@ export class Board {
     this.height = height;
     this.falling = false;
     this.stoppedBlocks = [];
+    console.log(this.shapeToBlock(Tetromino.T_SHAPE.toString()));
   }
   
   toString() {    
@@ -35,7 +36,6 @@ export class Board {
   }
   
   drop(arg){
-    let coords;
     if(this.falling) {
       throw new Error("already falling");
     }else if(arg === Tetromino.T_SHAPE){
@@ -114,5 +114,8 @@ export class Board {
         }        
       }
     return {name, coords}
+  }
+  blockToBoard(){
+
   }
 }
