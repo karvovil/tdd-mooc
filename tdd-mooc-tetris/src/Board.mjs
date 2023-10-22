@@ -100,4 +100,7 @@ export class Board {
     ]
       return coords;
   }
+  shapeToCoords(){
+    
+  }
 }
