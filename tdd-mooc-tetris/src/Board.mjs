@@ -5,7 +5,6 @@ export class Board {
   height;
   stoppedBlocks;
   current;
-  currentShape;
   falling;
 
   constructor(width, height) {
