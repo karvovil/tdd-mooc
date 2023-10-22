@@ -38,7 +38,7 @@ export class Board {
     if(this.falling) {
       throw new Error("already falling");
     }else if(arg === Tetromino.T_SHAPE){
-      this.current = this.shapeToBlock(Tetromino.T_SHAPE.toString());
+      this.current = this.blockToBoard(Tetromino.T_SHAPE.toBlock());
     }else{
       this.current = {name: arg,
                       coords: [{
@@ -80,22 +80,10 @@ export class Board {
       : Math.floor(this.width/2)
   }
 
-  shapeToBlock(shape){
-    const rows = shape.split("\n");
-    let coords = [];
-    let name;
-    for (let y = 0; y < rows.length; y++) {
-      for (let x = 0; x < rows[y].length; x++) {
-        const charAtXY = rows[y].charAt(x)
-        if(charAtXY  != '.'){ 
-          coords.push({x, y});
-          name = charAtXY;
-        }
-      }        
-    }
+  blockToBoard(block){
     return {
-      name: name,
-      coords: coords.map(({x,y}) => ({
+      name: block.name,
+      coords: block.coords.map(({x,y}) => ({
         x: x + this.center() -1,
         y: y 
       }))

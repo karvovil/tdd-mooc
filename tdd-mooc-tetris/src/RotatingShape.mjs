@@ -16,7 +16,7 @@ export class RotatingShape {
     return this.shape;
   }
   toBlock(){
-    const rows = shape.split("\n");
+    const rows = this.shape.split("\n");
     let coords = [];
     let name;
     for (let y = 0; y < rows.length; y++) {
