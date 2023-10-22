@@ -13,7 +13,6 @@ export class Board {
     this.height = height;
     this.falling = false;
     this.stoppedBlocks = [];
-    console.log(this.shapeToCoords());
   }
   
   toString() {    
@@ -101,11 +100,15 @@ export class Board {
     ]
       return coords;
   }
-  shapeToCoords(){
+  shapeToCoords(shape){
+    const rows = shape.split("\n");
     let coords = [];
-      for (let x = 0; x < this.width; x++) {
-        for (let y = 0; y < this.height; y++) {
-          coords.push({x, y});
+    for (let y = 0; y < rows.length; y++) {
+      for (let x = 0; x < rows[y].length; x++) {
+          const charAtXY = rows[y].charAt(x)
+          if(charAtXY  != '.'){ 
+            coords.push({x, y});
+          }        
         }        
       }
     return coords
