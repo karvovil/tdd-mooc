@@ -79,26 +79,7 @@ export class Board {
   center(){
     return this.width % 2 == 0 ? Math.floor(this.width/2)-1 : Math.floor(this.width/2)
   }
-  shapeCoords(){
-    const coords = [
-      {
-        x: this.center(),
-        y: 0},
-      {
-        x: this.center()-1,
-        y: 1
-      },
-      {
-        x: this.center(),
-        y: 1
-      },
-      {
-        x: this.center()+1,
-        y: 1
-      }
-    ]
-      return coords;
-  }
+
   shapeToBlock(shape){
     const rows = shape.split("\n");
     let coords = [];
