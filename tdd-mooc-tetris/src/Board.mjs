@@ -13,7 +13,6 @@ export class Board {
     this.height = height;
     this.falling = false;
     this.stoppedBlocks = [];
-    console.log(this.shapeToBlock(Tetromino.T_SHAPE.toString()));
   }
   
   toString() {    
@@ -42,6 +41,8 @@ export class Board {
       this.currentShape = Tetromino.T_SHAPE
       this.currentPosition = {x: this.center(), y: 0}
       this.current = {name: 'T', coords: this.shapeCoords() }
+//      console.log(this.blockToBoard(this.shapeToBlock(Tetromino.T_SHAPE.toString())).coords);
+
     }else{
       this.current = {name: arg,
                       coords: [{
@@ -115,7 +116,10 @@ export class Board {
       }
     return {name, coords}
   }
-  blockToBoard(){
-
+  blockToBoard(block){
+    const newCoords = block.coords.map(({x,y}) => (
+      { x: x + this.center() -1, y: y }
+    ));
+    return {...block, coords: newCoords};
   }
 }
