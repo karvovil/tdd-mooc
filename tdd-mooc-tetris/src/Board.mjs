@@ -101,6 +101,8 @@ export class Board {
       return coords;
   }
   shapeToCoords(){
+    let coords = [];
     
+    return coords
   }
 }
