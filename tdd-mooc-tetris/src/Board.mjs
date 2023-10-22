@@ -100,17 +100,19 @@ export class Board {
     ]
       return coords;
   }
-  shapeToCoords(shape){
+  shapeToBlock(shape){
     const rows = shape.split("\n");
     let coords = [];
+    let name;
     for (let y = 0; y < rows.length; y++) {
       for (let x = 0; x < rows[y].length; x++) {
           const charAtXY = rows[y].charAt(x)
           if(charAtXY  != '.'){ 
             coords.push({x, y});
-          }        
+            name = charAtXY;
+          }
         }        
       }
-    return coords
+    return {name, coords}
   }
 }
