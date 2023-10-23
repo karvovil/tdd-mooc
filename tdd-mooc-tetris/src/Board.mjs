@@ -49,7 +49,9 @@ export class Board {
   }
 
   tick() {
-    const nextCoords = this.current.coords.map(({ x, y }) => ({ x: x, y: y+1 }))
+    const nextCoords = this.current.coords.map(
+      ({ x, y }) => ({ x, y: y+1 })
+    )
     if(
       this.current.coords.some(c => c.y >= this.height -1) ||
       this.illegalPosition(nextCoords)
