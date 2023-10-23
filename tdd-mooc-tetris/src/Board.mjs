@@ -73,7 +73,10 @@ export class Board {
   }
   moveRight(){
     const newCoords = this.current.coords.map(({y,x}) => ({y, x:x+1}))
-    if(newCoords.every(c => c.x < this.width)){
+    if(
+      newCoords.every(c => c.x < this.width) &&
+      !this.illegalPosition(newCoords)
+    ){
       this.current.coords = newCoords;
     } 
   }
