@@ -39,6 +39,9 @@ export class Board {
   shapeToBoard(){
 
   }
+  collision(){
+    
+  }
   drop(block){
     if(this.falling) {
       throw new Error("already falling");
