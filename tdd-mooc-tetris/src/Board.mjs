@@ -63,7 +63,10 @@ export class Board {
     }
   }
   moveLeft(){
-    this.current.coords.forEach(c => c.x--);
+    const newCoords = this.current.coords.map(({y,x}) => ({y, x:x-1}))
+    if(newCoords.every(c => c.x >= 0)){
+      this.current.coords = newCoords;
+    } 
   }
   moveRight(){
     this.current.coords.forEach(c => c.x++);
