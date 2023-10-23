@@ -71,20 +71,24 @@ export class Board {
   }
   moveLeft(){
     const newCoords = this.current.coords.map(({y,x}) => ({y, x:x-1}))
+    const newPosition = this.position.x--
     if(
       newCoords.every(c => c.x >= 0) &&
       !this.illegalPosition(newCoords)
     ){
       this.current.coords = newCoords;
+      this.current.position = newPosition;
     } 
   }
   moveRight(){
     const newCoords = this.current.coords.map(({y,x}) => ({y, x:x+1}))
+    const newPosition = this.position.x++
     if(
       newCoords.every(c => c.x < this.width) &&
       !this.illegalPosition(newCoords)
     ){
       this.current.coords = newCoords;
+      this.current.position = newPosition;
     } 
   }
   equal(c1, c2){
