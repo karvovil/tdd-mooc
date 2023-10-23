@@ -51,8 +51,8 @@ export class Board {
   tick() {
     const nextCoords = this.current.coords.map(({ x, y }) => ({ x: x, y: y+1 }))
     if(
-      this.current.coords.some (c => c.y >= this.height -1) ||
-      this.hasIntersection(this.stoppedBlocks.flatMap(b => b.coords ), nextCoords)
+      this.current.coords.some(c => c.y >= this.height -1) ||
+      this.illegalPosition(nextCoords)
     ){
       this.falling = false;
       this.stoppedBlocks.push(this.current)
@@ -66,8 +66,9 @@ export class Board {
   hasCoord(a, c1){
     return a.some(c => this.equal(c, c1));
   }
-  hasIntersection(a1, a2){
-    return a1.some(c => this.hasCoord(a2, c))
+  illegalPosition(a){
+    const stoppedCoords = this.stoppedBlocks.flatMap(b => b.coords );
+    return stoppedCoords.some(c => this.hasCoord(a, c))
   }
   hasFalling() {
     return this.falling;
