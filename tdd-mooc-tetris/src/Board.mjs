@@ -29,17 +29,17 @@ export class Board {
       );
       block ? row += block.name : row += '.'
     }
-
     return row + '\n';
   }
   
-  drop(arg){
+  drop(block){
     if(this.falling) {
       throw new Error("already falling");
-    }else if(arg === Tetromino.T_SHAPE){
-      this.current = this.blockToBoard(Tetromino.T_SHAPE.toBlock());
+    }
+    if(block === Tetromino.T_SHAPE){
+      this.current = this.toBoard(Tetromino.T_SHAPE.toBlock());
     }else{
-      this.current = {name: arg,
+      this.current = {name: block,
                       coords: [{
                         x: this.center(),
                         y: 0}]
@@ -53,12 +53,11 @@ export class Board {
     if(
       this.current.coords.some (c => c.y >= this.height -1) ||
       this.hasIntersection(this.stoppedBlocks.flatMap(b => b.coords ), nextCoords)
-      ){
-        this.falling = false;
-        this.stoppedBlocks.push(this.current)
-        
-      }else{
-        this.current.coords = nextCoords;
+    ){
+      this.falling = false;
+      this.stoppedBlocks.push(this.current)
+    }else{
+      this.current.coords = nextCoords;
     }
   }
   equal(c1, c2){
@@ -79,7 +78,7 @@ export class Board {
       : Math.floor(this.width/2)
   }
 
-  blockToBoard(block){
+  toBoard(block){
     return {
       name: block.name,
       coords: block.coords.map(({x,y}) => ({
