@@ -64,7 +64,10 @@ export class Board {
   }
   moveLeft(){
     const newCoords = this.current.coords.map(({y,x}) => ({y, x:x-1}))
-    if(newCoords.every(c => c.x >= 0)){
+    if(
+      newCoords.every(c => c.x >= 0) &&
+      !this.illegalPosition(newCoords)
+    ){
       this.current.coords = newCoords;
     } 
   }
@@ -75,20 +78,17 @@ export class Board {
     } 
   }
   moveDown(){
-    const newCoords = this.current.coords.map(({y,x}) => ({y:y+1, x}))
-    if(newCoords.every(c => c.y < this.height)){
-      this.current.coords = newCoords;
-    } 
+    this.tick();
   }
   equal(c1, c2){
-    return c1.x === c2.x && c1.y === c2.y
+    return c1.x === c2.x && c1.y === c2.y;
   }
   hasCoord(arr, c1){
     return arr.some(c => this.equal(c, c1));
   }
   illegalPosition(arr){
-    const stoppedCoords = this.stoppedBlocks.flatMap(b => b.coords );
-    return stoppedCoords.some(c => this.hasCoord(arr, c))
+    const stoppedCoords = this.stoppedBlocks.flatMap(b => b.coords);
+    return stoppedCoords.some(c => this.hasCoord(arr, c));
   }
   hasFalling() {
     return this.falling;
