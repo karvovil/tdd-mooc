@@ -80,4 +80,21 @@ describe("Falling tetromino", () => {
        ..........`
     );
   })
+  it("cannot be moved down beyond the board", () => {
+    board.drop(Tetromino.T_SHAPE);
+    board.moveDown();
+    board.moveDown();
+    board.moveDown();
+    board.moveDown();
+    board.moveDown();
+
+    expect(board.toString()).to.equalShape(
+     `..........
+      ..........
+      ..........
+      ..........
+      ....T.....
+      ...TTT....`
+    );
+  })
 })
