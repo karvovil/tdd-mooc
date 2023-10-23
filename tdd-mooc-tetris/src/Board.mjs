@@ -40,6 +40,9 @@ export class Board {
 
   }
   collision(){
+
+  }
+  shapeToEmptyBoard(){
     
   }
   drop(block){
