@@ -7,7 +7,7 @@ function fallToBottom(board) {
     board.tick();
   }
 }
-describe("Falling tetromino", () => {
+describe("Moving falling tetromino", () => {
   let board;
   beforeEach(() => {
     board = new Board(10, 6);
@@ -141,7 +141,7 @@ describe("Falling tetromino", () => {
       );
       
   })
-  it("it cannot be moved down through other blocks", () => {
+  it("cannot be moved down through other blocks", () => {
     board.drop(Tetromino.T_SHAPE);
     fallToBottom(board);
     board.drop(Tetromino.T_SHAPE);
