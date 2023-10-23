@@ -40,7 +40,10 @@ export class RotatingShape {
     const lines = this.shape.split("\n");
     let rotatedLines = [];
     for(let i = 0; i < lines.length-1; i++){
-      rotatedLines.push(lines.reduce((a, l) => a + l.charAt(i), '').split('').reverse().join('')  + '\n');
+      rotatedLines.push(
+        lines.reduce((a, l) =>  a + l.charAt(i), '')
+        .split('').reverse().join('')  + '\n'
+      );
     }
     return new RotatingShape(rotatedLines.join(''));
   }
