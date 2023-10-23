@@ -8,12 +8,14 @@ export class Board {
   falling;
   shape;
   position;
+  board;
 
   constructor(width, height) {
     this.width = width;
     this.height = height;
     this.falling = false;
     this.stoppedBlocks = [];
+    this.board = (".".repeat(width) +'\n').repeat(height);
   }
   
   toString() {    
