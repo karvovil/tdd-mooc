@@ -66,6 +66,7 @@ export class Board {
       this.stoppedBlocks.push(this.current)
     }else{
       this.current.coords = nextCoords;
+      this.position.y++
     }
   }
   moveLeft(){
