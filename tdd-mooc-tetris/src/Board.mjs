@@ -37,12 +37,15 @@ export class Board {
   }
 
   shapeToBoard(){
-    const rows = this.board.split("\n");
+    let newString;
+    const boardRows = this.board.split("\n");
+    const shapeRows = this.shape.split("\n");
     for (let y = 0; y < rows.length; y++) {
       for (let x = 0; x < rows[y].length; x++) {
-
+        
       }        
     }
+    return newString;
   }
 
   collision(){
