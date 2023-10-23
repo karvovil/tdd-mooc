@@ -35,7 +35,10 @@ export class Board {
     }
     return row + '\n';
   }
-  
+
+  shapeToBoard(){
+
+  }
   drop(block){
     if(this.falling) {
       throw new Error("already falling");
