@@ -62,6 +62,9 @@ export class Board {
       this.current.coords = nextCoords;
     }
   }
+  moveLeft(){
+    this.current.coords.forEach(c => c.x--);
+  }
   equal(c1, c2){
     return c1.x === c2.x && c1.y === c2.y
   }
