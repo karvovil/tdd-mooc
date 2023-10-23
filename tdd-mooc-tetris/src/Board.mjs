@@ -75,7 +75,10 @@ export class Board {
     } 
   }
   moveDown(){
-    this.current.coords.forEach(c => c.y++);
+    const newCoords = this.current.coords.map(({y,x}) => ({y:y+1, x}))
+    if(newCoords.every(c => c.y < this.height)){
+      this.current.coords = newCoords;
+    } 
   }
   equal(c1, c2){
     return c1.x === c2.x && c1.y === c2.y
