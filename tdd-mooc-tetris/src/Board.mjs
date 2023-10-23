@@ -41,13 +41,16 @@ export class Board {
     const boardRows = this.board.split("\n");
     const shapeRows = this.shape.split("\n");
     const shapelength = shapeRows.length;
-    for (let y = 0; y < rows.length; y++) {
-      for (let x = 0; x < rows[y].length; x++) {
+    for (let y = 0; y < boardRows.length; y++) {
+      for (let x = 0; x < boardRows[y].length; x++) {
         if(
           x >= this.position.x && x < this.position.x + shapelength &&
           y >= this.position.x && y < this.position.y + shapelength 
         ){
-
+          newBoard += shapeRows[y - this.position.y]
+          .charAt(x - this.position.x);
+        }else{
+          newBoard += boardRows[y].charAt(x);
         }
       }        
     }
