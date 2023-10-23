@@ -65,10 +65,8 @@ export class RotatingShape {
     return new RotatingShape(rotatedLines.join(''));
   }
   rotateI(){
-    if (this.shape === '..I..\n..I..\n..I..\n..I..\n.....\n'){
-      return new RotatingShape('.....\n.....\nIIII.\n.....\n.....\n')
-    }else if (this.shape === '.....\n.....\nIIII.\n.....\n.....\n'){
-      return new RotatingShape('..I..\n..I..\n..I..\n..I..\n.....\n')
-    }
+    return this.shape === '..I..\n..I..\n..I..\n..I..\n.....\n'
+      ? new RotatingShape('.....\n.....\nIIII.\n.....\n.....\n')
+      : new RotatingShape('..I..\n..I..\n..I..\n..I..\n.....\n')
   }
 }
