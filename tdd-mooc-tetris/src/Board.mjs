@@ -37,12 +37,18 @@ export class Board {
   }
 
   shapeToBoard(){
-    let newString;
+    let newBoard;
     const boardRows = this.board.split("\n");
     const shapeRows = this.shape.split("\n");
+    const shapelength = shapeRows.length;
     for (let y = 0; y < rows.length; y++) {
       for (let x = 0; x < rows[y].length; x++) {
-        
+        if(
+          x >= this.position.x && x < this.position.x + shapelength &&
+          y >= this.position.x && y < this.position.y + shapelength 
+        ){
+
+        }
       }        
     }
     return newString;
