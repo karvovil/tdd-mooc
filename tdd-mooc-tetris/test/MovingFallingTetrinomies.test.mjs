@@ -7,7 +7,7 @@ function fallToBottom(board) {
     board.tick();
   }
 }
-/* describe("Moving falling tetromino", () => {
+describe("Moving falling tetromino", () => {
   let board;
   beforeEach(() => {
     board = new Board(10, 6);
@@ -26,7 +26,7 @@ function fallToBottom(board) {
        ..........`
     );
   })
-  it("can be moved right", () => {
+  xit("can be moved right", () => {
     board.drop(Tetromino.T_SHAPE);
     board.moveRight();
 
@@ -39,7 +39,7 @@ function fallToBottom(board) {
        ..........`
     );
   })
-  it("can be moved down", () => {
+  xit("can be moved down", () => {
     board.drop(Tetromino.T_SHAPE);
     board.tick();
 
@@ -52,7 +52,7 @@ function fallToBottom(board) {
        ..........`
     );
   })
-  it("cannot be moved left beyond the board", () => {
+  xit("cannot be moved left beyond the board", () => {
     board.drop(Tetromino.T_SHAPE);
     board.moveLeft();
     board.moveLeft();
@@ -68,7 +68,7 @@ function fallToBottom(board) {
        ..........`
     );
   })
-  it("cannot be moved right beyond the board", () => {
+  xit("cannot be moved right beyond the board", () => {
     board.drop(Tetromino.T_SHAPE);
     board.moveRight();
     board.moveRight();
@@ -85,7 +85,7 @@ function fallToBottom(board) {
        ..........`
     );
   })
-  it("cannot be moved down beyond the board", () => {
+  xit("cannot be moved down beyond the board", () => {
     board.drop(Tetromino.T_SHAPE);
     fallToBottom(board);
     board.tick();
@@ -99,7 +99,7 @@ function fallToBottom(board) {
       ...TTT....`
     );
   })
-  it("cannot be moved left through other blocks", () => {
+  xit("cannot be moved left through other blocks", () => {
     board.drop(Tetromino.T_SHAPE);
     fallToBottom(board);
     board.drop(Tetromino.T_SHAPE);
@@ -120,7 +120,7 @@ function fallToBottom(board) {
       );
       
   })
-  it("cannot be moved right through other blocks", () => {
+  xit("cannot be moved right through other blocks", () => {
     board.drop(Tetromino.T_SHAPE);
     fallToBottom(board);
     board.drop(Tetromino.T_SHAPE);
@@ -141,7 +141,7 @@ function fallToBottom(board) {
       );
       
   })
-  it("cannot be moved down through other blocks", () => {
+  xit("cannot be moved down through other blocks", () => {
     board.drop(Tetromino.T_SHAPE);
     fallToBottom(board);
     board.drop(Tetromino.T_SHAPE);
@@ -163,4 +163,3 @@ function fallToBottom(board) {
       
   })
 })
- */
