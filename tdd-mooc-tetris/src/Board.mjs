@@ -36,7 +36,7 @@ export class Board {
     return row + '\n';
   }
 
-  shapeToBoard(shape){
+  shapeToBoard(shape, position){
     let newBoard = '';
     const boardRows = this.board.split("\n");
     const shapeRows = shape?.toString().split("\n");
@@ -44,11 +44,11 @@ export class Board {
     for (let y = 0; y < this.height; y++) {
       for (let x = 0; x < this.width; x++) {
         if(
-          x >= this.position?.x && x < this.position.x + shapelength &&
-          y >= this.position.y && y < this.position.y + shapelength 
+          x >= position?.x && x < position.x + shapelength &&
+          y >= position.y && y < position.y + shapelength 
         ){
-          newBoard += shapeRows[y - this.position.y]
-          .charAt(x - this.position.x);
+          newBoard += shapeRows[y - position.y]
+          .charAt(x - position.x);
         }else{
           newBoard += boardRows[y].charAt(x);
         }
@@ -117,7 +117,7 @@ export class Board {
     }
     if (this.collision(nextPosition)){
       this.falling = false;
-      this.board = this.shapeToBoard(this.shape)
+      this.board = this.shapeToBoard(this.shape, this.position)
     }else{
       this.current.position = nextPosition;
     }
