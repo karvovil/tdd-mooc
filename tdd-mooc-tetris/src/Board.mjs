@@ -59,25 +59,7 @@ export class Board {
   }
 
   collision(newPosition){
-    const boardRows = this.board.split("\n");
-    const shapeRows = this.shape?.toString().split("\n");
-    const shapelength = shapeRows?.length -1
-    for (let y = 0; y < this.height; y++) {
-      for (let x = 0; x < this.width; x++) {
-        if(
-          x >= newPosition?.x && x < newPosition.x + shapelength &&
-          y >= newPosition.y && y < newPosition.y + shapelength 
-        ){
-          if(
-            boardRows[y].charAt(x) != '.' &&
-              shapeRows[y - newPosition.y].charAt(x - newPosition.x) != '.'
-          ){
-            return true;
-          }
-        }
-      }
-    }
-    return false;
+    
   }
   drop(block){
     if(this.falling) {
