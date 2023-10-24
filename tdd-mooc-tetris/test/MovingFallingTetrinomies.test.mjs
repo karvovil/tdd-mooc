@@ -39,7 +39,7 @@ describe("Moving falling tetromino", () => {
        ..........`
     );
   })
-  xit("can be moved down", () => {
+  it("can be moved down", () => {
     board.drop(Tetromino.T_SHAPE);
     board.tick();
 
@@ -52,7 +52,7 @@ describe("Moving falling tetromino", () => {
        ..........`
     );
   })
-  xit("cannot be moved left beyond the board", () => {
+  it("cannot be moved left beyond the board", () => {
     board.drop(Tetromino.T_SHAPE);
     board.moveLeft();
     board.moveLeft();
