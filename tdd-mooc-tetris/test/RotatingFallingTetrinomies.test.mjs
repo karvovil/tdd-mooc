@@ -2,38 +2,23 @@ import { expect } from "chai";
 import { Board } from "../src/Board.mjs";
 import { Tetromino } from "../src/Tetromino.mjs";
 
-describe("BBBLLBOSOO", () => {
+describe("Rotating falling tetromino", () => {
   let board;
   beforeEach(() => {
-    board = new Board(9,6);
+    board = new Board(10,6);
   });
 
-  it("adfsdasdasd", () => {
-    console.log('empty'+'\n'+board.shapeToBoard());
+  it("can be rotated left", () => {
     board.drop(Tetromino.T_SHAPE);
-    console.log('drop'+'\n'+board.shapeToBoard(board.shape, board.position));
-    board.tick()
-    console.log('1'+'\n'+board.shapeToBoard(board.shape, board.position));
-    board.tick()
-    console.log('2'+'\n'+board.shapeToBoard(board.shape, board.position));
-    board.tick()
-    console.log('3'+'\n'+board.shapeToBoard(board.shape, board.position));
-    board.tick()
-    console.log('4'+'\n'+board.shapeToBoard(board.shape, board.position));
-    board.tick()
-    console.log('5'+'\n'+board.shapeToBoard(board.shape, board.position));
-    board.drop(Tetromino.I_SHAPE);
-    console.log('drop'+'\n'+board.shapeToBoard(board.shape, board.position));
-    board.tick()
-    console.log('1'+'\n'+board.shapeToBoard(board.shape, board.position));
-    board.tick()
-    console.log('2'+'\n'+board.shapeToBoard(board.shape, board.position));
-    board.tick()
-    console.log('2'+'\n'+board.shapeToBoard(board.shape, board.position));
-    board.tick()
-    console.log('2'+'\n'+board.shapeToBoard(board.shape, board.position));
-    board.tick()
-    console.log('2'+'\n'+board.shapeToBoard(board.shape, board.position));
+    board.rotateLeft();
+    expect(board.toString()).to.equalShape(
+      `....T.....
+       ...TT.....
+       ....T.....
+       ..........
+       ..........
+       ..........`
+    );
   })
   
 });
