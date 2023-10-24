@@ -102,4 +102,7 @@ export class Board {
       ? Math.floor(this.width/2)-1
       : Math.floor(this.width/2)
   }
+  hasFalling(){
+    return this.falling;
+  }
 }
