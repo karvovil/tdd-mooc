@@ -42,14 +42,14 @@ export class Board {
     }
     let newBoard = '';
     const boardRows = this.board.split("\n");
-    const shapeRows = shape.toString().split("\n");
+    const shapeRows = shape?.toString().split("\n");
     const shapelength = shapeRows.length -1
     for (let y = 0; y < this.height; y++) {
       for (let x = 0; x < this.width; x++) {
         const shapeChar = shapeRows[y - position.y]?.charAt(x - position.x);
         const boardChar = boardRows[y].charAt(x)
         if(
-          x >= position.x && x < position.x + shapelength &&
+          x >= position?.x && x < position.x + shapelength &&
           y >= position.y && y < position.y + shapelength &&
           shapeChar != '.'
         ){
@@ -101,13 +101,12 @@ export class Board {
       this.stoppedBlocks.push(this.current)
     }else{
       this.current.coords = nextCoords;
-      this.position.y++
     }
     if (this.collision(nextPosition)){
       this.falling = false;
       this.board = this.shapeToBoard(this.shape, this.position)
     }else{
-      this.current.position = nextPosition;
+      this.position = nextPosition;
     }
   }
   moveLeft(){
