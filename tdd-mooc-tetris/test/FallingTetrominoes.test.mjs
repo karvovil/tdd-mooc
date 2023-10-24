@@ -8,7 +8,7 @@ function fallToBottom(board) {
   }
 }
 
-/* describe("Falling tetrominoes", () => {
+describe("Falling tetrominoes", () => {
   let board;
   beforeEach(() => {
     board = new Board(10, 6);
@@ -41,7 +41,7 @@ function fallToBottom(board) {
     );
   });
 
-  it("stop when they land on another block", () => {
+  xit("stop when they land on another block", () => {
     board.drop(Tetromino.T_SHAPE);
     fallToBottom(board);
     board.drop(Tetromino.T_SHAPE);
@@ -57,4 +57,3 @@ function fallToBottom(board) {
     );
   });
 });
- */
