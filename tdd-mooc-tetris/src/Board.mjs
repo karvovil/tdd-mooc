@@ -84,15 +84,10 @@ export class Board {
     } 
   }
   moveRight(){
-/*     const newCoords = this.current.coords.map(({y,x}) => ({y, x:x+1}))
     const newPosition = this.position.x++
-    if(
-      newCoords.every(c => c.x < this.width) &&
-      !this.illegalPosition(newCoords)
-    ){
-      this.current.coords = newCoords;
+    if(!this.collision(newPosition)){
       this.current.position = newPosition;
-    }  */
+    } 
   }
 
   center(){
