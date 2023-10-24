@@ -1,3 +1,4 @@
+import { RotatingShape } from "./RotatingShape.mjs";
 import { Tetromino } from "./Tetromino.mjs";
 
 export class Board {
@@ -16,7 +17,7 @@ export class Board {
   }
   
   toString() {    
-    return this.shapeToBoard(this.shape, this.board)
+    return this.shapeToBoard(this.shape, this.position)
   }
   
   shapeToBoard(shape, position){
@@ -54,7 +55,9 @@ export class Board {
     if(this.falling) {
       throw new Error("already falling");
     }
-    this.shape = block;
+    this.shape = (typeof block === 'string') ?
+      new RotatingShape(block) : block;
+
     this.position = { x: (this.center() - Math.floor((this.shape.toString().split("\n").length)/2))+1, y: 0 };
     this.falling = true;
   }
