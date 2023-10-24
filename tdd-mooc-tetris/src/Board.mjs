@@ -64,13 +64,11 @@ export class Board {
     if(this.falling) {
       throw new Error("already falling");
     }
+    this.shape = block
+    this.position = { x: (this.center() - Math.floor((this.shape.toString().split("\n").length)/2))+1, y: 0 }
     if(block === Tetromino.T_SHAPE){
-      this.shape = block
-      this.position = { x: this.center() -2, y: 0 }
       this.current = this.toBoard(Tetromino.T_SHAPE.toBlock());
     }else{
-      this.shape = block;
-      this.position = { x: this.center() -2, y: 0 }
       this.current = {name: block,
                       coords: [{
                         x: this.center(),
