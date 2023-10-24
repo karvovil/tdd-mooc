@@ -36,10 +36,10 @@ export class Board {
     return row + '\n';
   }
 
-  shapeToBoard(){
+  shapeToBoard(shape){
     let newBoard = '';
     const boardRows = this.board.split("\n");
-    const shapeRows = this.shape?.toString().split("\n");
+    const shapeRows = shape?.toString().split("\n");
     const shapelength = shapeRows?.length -1
     for (let y = 0; y < this.height; y++) {
       for (let x = 0; x < this.width; x++) {
@@ -117,7 +117,7 @@ export class Board {
     }
     if (this.collision(nextPosition)){
       this.falling = false;
-      this.board = this.shapeToBoard()
+      this.board = this.shapeToBoard(this.shape)
     }else{
       this.current.position = nextPosition;
     }
