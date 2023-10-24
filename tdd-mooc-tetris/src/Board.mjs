@@ -87,9 +87,12 @@ export class Board {
     } 
   }
   moveRight(){
-    const newPosition = this.position.x++
+    const newPosition = {
+      x: this.position.x +1,
+      y: this.position.y
+    }
     if(!this.collision(newPosition)){
-      this.current.position = newPosition;
+      this.position = newPosition
     } 
   }
 
