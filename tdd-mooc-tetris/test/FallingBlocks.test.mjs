@@ -65,7 +65,7 @@ describe("Falling blocks", () => {
               ).to.be.true;
             });
             
-            xit("it stops when it hits the bottom", () => {
+            it("it stops when it hits the bottom", () => {
               board.tick();
               
               expect(board.toString()).to.equalShape(
@@ -87,7 +87,7 @@ describe("Falling blocks", () => {
       board.tick();
     });
     
-    xit("it is still moving on the row above the other block", () => {
+    it("it is still moving on the row above the other block", () => {
       expect(board.toString()).to.equalShape(
         `...
         .Y.
@@ -99,7 +99,7 @@ describe("Falling blocks", () => {
           ).to.be.true;
         });
         
-        xit("it stops when it hits the other block", () => {
+        it("it stops when it hits the other block", () => {
           board.tick();
           
           expect(board.toString()).to.equalShape(
