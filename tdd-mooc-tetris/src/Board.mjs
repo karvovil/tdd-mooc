@@ -95,6 +95,9 @@ export class Board {
       this.position = newPosition
     } 
   }
+  rotateLeft(){
+    this.shape = this.shape.rotateLeft();
+  }
 
   center(){
     return this.width % 2 == 0
