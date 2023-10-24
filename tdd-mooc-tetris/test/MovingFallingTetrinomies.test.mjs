@@ -68,7 +68,7 @@ describe("Moving falling tetromino", () => {
        ..........`
     );
   })
-  xit("cannot be moved right beyond the board", () => {
+  it("cannot be moved right beyond the board", () => {
     board.drop(Tetromino.T_SHAPE);
     board.moveRight();
     board.moveRight();
