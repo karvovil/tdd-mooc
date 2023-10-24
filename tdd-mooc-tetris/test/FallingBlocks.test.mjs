@@ -14,7 +14,6 @@ describe("Falling blocks", () => {
       ...`
     );
   })
-  /* 
   describe("When a block is dropped", () => {
     beforeEach(() => {
       board.drop("X");
@@ -25,9 +24,10 @@ describe("Falling blocks", () => {
         `.X.
         ...
         ...`
-      );
-    });
-    
+        );
+      });
+      
+      /* 
     it("it moves down one row per tick", () => {
       board.tick();
       
@@ -110,5 +110,6 @@ describe("Falling blocks", () => {
       );
       expect(board.hasFalling(), "the block should stop moving").to.be.false;
     });
-  }); */
+    */
+  }); 
 });
