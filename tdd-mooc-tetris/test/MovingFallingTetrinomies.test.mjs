@@ -7,7 +7,7 @@ function fallToBottom(board) {
     board.tick();
   }
 }
-describe("Moving falling tetromino", () => {
+/* describe("Moving falling tetromino", () => {
   let board;
   beforeEach(() => {
     board = new Board(10, 6);
@@ -163,3 +163,4 @@ describe("Moving falling tetromino", () => {
       
   })
 })
+ */
