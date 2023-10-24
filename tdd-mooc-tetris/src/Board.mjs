@@ -39,13 +39,13 @@ export class Board {
   shapeToBoard(){
     let newBoard;
     const boardRows = this.board.split("\n");
-    const shapeRows = this.shape.split("\n");
-    const shapelength = shapeRows.length;
-    for (let y = 0; y < boardRows.length; y++) {
-      for (let x = 0; x < boardRows[y].length; x++) {
+    const shapeRows = this.shape.toString().split("\n");
+    const shapelength = shapeRows.length -1
+    for (let y = 0; y < this.height; y++) {
+      for (let x = 0; x < this.width; x++) {
         if(
           x >= this.position.x && x < this.position.x + shapelength &&
-          y >= this.position.x && y < this.position.y + shapelength 
+          y >= this.position.y && y < this.position.y + shapelength 
         ){
           newBoard += shapeRows[y - this.position.y]
           .charAt(x - this.position.x);
@@ -54,7 +54,7 @@ export class Board {
         }
       }        
     }
-    return newString;
+    return newBoard;
   }
 
   collision(){
