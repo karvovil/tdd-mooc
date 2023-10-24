@@ -83,8 +83,8 @@ export class Board {
     if(this.falling) {
       throw new Error("already falling");
     }
-    this.shape = block
-    this.position = { x: (this.center() - Math.floor((this.shape.toString().split("\n").length)/2))+1, y: 0 }
+    this.shape = block;
+    this.position = { x: (this.center() - Math.floor((this.shape.toString().split("\n").length)/2))+1, y: 0 };
     if(block === Tetromino.T_SHAPE){
       this.current = this.toBoard(Tetromino.T_SHAPE.toBlock());
     }else{
@@ -93,14 +93,18 @@ export class Board {
                         x: this.center(),
                         y: 0}]
       }
-      this.falling = true;
     }
+    this.falling = true;
   }
 
   tick() {
     const nextCoords = this.current.coords.map(
       ({ x, y }) => ({ x, y: y+1 })
     )
+    const nextPosition = {
+      x: this.position.x,
+      y: this.position.y+1
+    };
     if(
       this.current.coords.some(c => c.y >= this.height -1) ||
       this.illegalPosition(nextCoords)
@@ -110,6 +114,12 @@ export class Board {
     }else{
       this.current.coords = nextCoords;
       this.position.y++
+    }
+    if (this.collision(nextPosition)){
+      this.falling = false;
+      this.board = this.shapeToBoard()
+    }else{
+      this.current.position = nextPosition;
     }
   }
   moveLeft(){
