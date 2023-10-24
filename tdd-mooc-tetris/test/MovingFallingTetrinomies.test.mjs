@@ -26,7 +26,7 @@ describe("Moving falling tetromino", () => {
        ..........`
     );
   })
-  xit("can be moved right", () => {
+  it("can be moved right", () => {
     board.drop(Tetromino.T_SHAPE);
     board.moveRight();
 
