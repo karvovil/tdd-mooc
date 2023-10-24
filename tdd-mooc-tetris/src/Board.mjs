@@ -21,6 +21,7 @@ export class Board {
   }
   
   shapeToBoard(shape, position){
+    console.log(this.board);
     if (!shape || !position){
       return this.board
     }
@@ -70,6 +71,8 @@ export class Board {
     if (this.collision(nextPosition)){
       this.falling = false;
       this.board = this.shapeToBoard(this.shape, this.position)
+      this.position = {}
+      this.shape = {}
     }else{
       this.position = nextPosition;
     }
