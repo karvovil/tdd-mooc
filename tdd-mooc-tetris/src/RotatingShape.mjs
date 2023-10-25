@@ -1,7 +1,7 @@
+
 export class RotatingShape {
   shape;
-  name;
-  rotation;
+  rotations;
 
   constructor(str) {
     let newStr = str;
@@ -12,6 +12,11 @@ export class RotatingShape {
       newStr = newStr + '\n'
     }
     this.shape = newStr
+    let blockName;
+    blockName = str.includes('I') ? 'I' : 'X'
+    blockName = str.includes('O') ? 'O' : 'X'
+    blockName = str.includes('T') ? 'T' : 'X'
+    this.rotations = `AfricaTetromino.${blockName}_ROTATIONS`
   }
 
   toString(){
