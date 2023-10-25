@@ -51,7 +51,9 @@ export class Board {
     if (!this.collision(shape, position)){
       this.shape = shape;
       this.position = position;
+      return true;
     }
+    return false;
   }
   collision(newShape, newPosition){
     return (this.shapeToBoard(this.shape, this.position).split(".").length
@@ -97,12 +99,28 @@ export class Board {
     this.changeBoard(this.shape, newPosition)
   }
   rotateLeft(){
-    this.changeBoard(this.shape.rotateLeft(), this.position);
+    if (!this.changeBoard(this.shape.rotateLeft(), this.position)){
+      this.wallKick(this.shape.rotateLeft());
+    }
   }
   rotateRight(){
-    this.changeBoard(this.shape.rotateRight(), this.position);
+    if (!this.changeBoard(this.shape.rotateRight(), this.position)){
+      this.wallKick(this.shape.rotateRight());
+    }
   }
-
+  wallKick(rotatedShape){
+    const oneRight = {
+      x: this.position.x +1,
+      y: this.position.y
+    }
+    const oneLeft = {
+      x: this.position.x -1,
+      y: this.position.y
+    }
+    if(!this.changeBoard(rotatedShape, oneRight)){
+      this.changeBoard(rotatedShape, oneLeft);
+    }
+  }
   center(){
     return this.width % 2 == 0
       ? Math.floor(this.width/2)-1
