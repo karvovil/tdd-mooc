@@ -87,28 +87,20 @@ export class Board {
       x: this.position.x -1,
       y: this.position.y
     }
-    if(!this.collision(this.shape, newPosition)){
-      this.position = newPosition
-    } 
+    this.changeBoard(this.shape, newPosition)
   }
   moveRight(){
     const newPosition = {
       x: this.position.x +1,
       y: this.position.y
     }
-    if(!this.collision(this.shape, newPosition)){
-      this.position = newPosition
-    } 
+    this.changeBoard(this.shape, newPosition)
   }
   rotateLeft(){
-    if(!this.collision(this.shape.rotateLeft(), this.position)){
-      this.shape = this.shape.rotateLeft();
-    }
+    this.changeBoard(this.shape.rotateLeft(), this.position);
   }
   rotateRight(){
-    if(!this.collision(this.shape.rotateRight(), this.position)){
-      this.shape = this.shape.rotateRight();
-    }
+    this.changeBoard(this.shape.rotateRight(), this.position);
   }
 
   center(){
