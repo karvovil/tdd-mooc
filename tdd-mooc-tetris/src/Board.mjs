@@ -47,6 +47,12 @@ export class Board {
     return newBoard;
   }
 
+  changeBoard(shape, position){
+    if (!this.collision(shape, position)){
+      this.shape = shape;
+      this.position = position;
+    }
+  }
   collision(newShape, newPosition){
     return (this.shapeToBoard(this.shape, this.position).split(".").length
     < this.shapeToBoard(newShape, newPosition).split(".").length)
