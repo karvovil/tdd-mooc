@@ -16,19 +16,8 @@ describe("Rotating falling tetromino", () => {
 
   xit("can be rotated left", () => {
     board.drop(AfricaTetromino.T_SHAPE);
+    board.tick();
     board.rotateLeft();
-    expect(board.toString()).to.equalShape(
-      `....T.....
-       ...TT.....
-       ....T.....
-       ..........
-       ..........
-       ..........`
-    );
-  })
-  xit("can be rotated right", () => {
-    board.drop(AfricaTetromino.T_SHAPE);
-    board.rotateRight();
     expect(board.toString()).to.equalShape(
       `....T.....
        ....TT....
@@ -38,14 +27,28 @@ describe("Rotating falling tetromino", () => {
        ..........`
     );
   })
+  xit("can be rotated right", () => {
+    board.drop(AfricaTetromino.T_SHAPE);
+    board.tick();
+    board.rotateRight();
+    expect(board.toString()).to.equalShape(
+      `....T.....
+       ...TT....
+       ....T.....
+       ..........
+       ..........
+       ..........`
+    );
+  })
   xit("can't be rotated if no space", () => {
     board.drop(AfricaTetromino.T_SHAPE);
-    board.rotateRight();
+    board.tick();
+    board.rotateLeft();
     board.moveLeft();
     board.moveLeft();
     fallToBottom(board);
     board.drop(AfricaTetromino.T_SHAPE);
-    board.rotateRight();
+    board.rotateLeft();
     board.moveLeft();
     board.moveLeft();
     board.moveLeft();
@@ -67,16 +70,17 @@ describe("Rotating falling tetromino", () => {
 
   xit("does wall kick on left wall", () => {
     board.drop(AfricaTetromino.T_SHAPE);
-    board.rotateRight();
-    board.moveLeft();
-    board.moveLeft();
-    board.moveLeft();
-    board.moveLeft();
+    board.tick();
     board.rotateLeft();
+    board.moveLeft();
+    board.moveLeft();
+    board.moveLeft();
+    board.moveLeft();
+    board.rotateRight();
 
     expect(board.toString()).to.equalShape(
-      `.T........
-       TTT.......
+      `TTT.......
+       .T........
        ..........
        ..........
        ..........
@@ -85,17 +89,17 @@ describe("Rotating falling tetromino", () => {
   })
   xit("does wall kick on right wall", () => {
     board.drop(AfricaTetromino.T_SHAPE);
-    board.rotateLeft();
-    board.moveRight();
-    board.moveRight();
-    board.moveRight();
-    board.moveRight();
-    board.moveRight();
     board.rotateRight();
+    board.moveRight();
+    board.moveRight();
+    board.moveRight();
+    board.moveRight();
+    board.moveRight();
+    board.rotateLeft();
 
     expect(board.toString()).to.equalShape(
-      `........T.
-       .......TTT
+      `.......TTT
+       ........T.
        ..........
        ..........
        ..........
