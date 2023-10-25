@@ -40,26 +40,29 @@ describe("Rotating falling tetromino", () => {
   })
   it("can't be rotated if no space", () => {
     board.drop(Tetromino.T_SHAPE);
-    board.rotateLeft()
+    board.rotateRight();
+    board.moveLeft();
+    board.moveLeft();
     fallToBottom(board);
     board.drop(Tetromino.T_SHAPE);
     board.rotateRight();
-    board.moveRight();
+    board.moveLeft();
+    board.moveLeft();
+    board.moveLeft();
+    board.moveLeft();
     board.tick();
     board.tick();
     board.tick();
+    board.rotateLeft()
     
-    const shape =       
-     `..........
-      ..........
-      ..........
-      ....TT....
-      ...TTTT...
-      ....TT....`
-      
-    expect(board.toString()).to.equalShape(shape);
-    board.rotateLeft();
-    expect(board.toString()).to.equalShape(shape);
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       ..........
+       T.T.......
+       TTTT......
+       T.T.......`
+    );
   })
 
   it("does wall kick on left wall", () => {
