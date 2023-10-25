@@ -1,6 +1,7 @@
 import { expect } from "chai";
 import { Board } from "../src/Board.mjs";
 import { Tetromino } from "../src/Tetromino.mjs";
+import { AfricaTetromino} from "../src/AfricaTetromino.mjs";
 
 function fallToBottom(board) {
   for (let i = 0; i < 10; i++) {
@@ -15,7 +16,7 @@ describe("Falling tetrominoes", () => {
   });
 
   it("start from the top middle", () => {
-    board.drop(Tetromino.T_SHAPE);
+    board.drop(AfricaTetromino.T_SHAPE);
 
     expect(board.toString()).to.equalShape(
       `...TTT....
