@@ -1,5 +1,7 @@
 export class RotatingShape {
   shape;
+  name;
+  rotation;
 
   constructor(str) {
     let newStr = str;
