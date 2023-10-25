@@ -1,7 +1,9 @@
+import { Rotations } from "./Rotations.mjs";
 
 export class RotatingShape {
   shape;
   rotations;
+  rotationIndex;
 
   constructor(str) {
     let newStr = str;
@@ -12,12 +14,13 @@ export class RotatingShape {
       newStr = newStr + '\n'
     }
     this.shape = newStr
-    let blockName;
-    blockName = str.includes('I') ? 'I' : 'X'
-    blockName = str.includes('O') ? 'O' : 'X'
-    blockName = str.includes('T') ? 'T' : 'X'
-    this.rotations = `AfricaTetromino.${blockName}_ROTATIONS`
-  }
+
+    this.rotations = str.includes('I') ? Rotations.I_ROTATIONS : [];
+    this.rotations = str.includes('O') ? Rotations.O_ROTATIONS : [];
+    this.rotations = str.includes('T') ? Rotations.T_ROTATIONS : [];
+
+    this.rotationIndex = this.rotations.indexOf(this.shape)
+  };
 
   toString(){
     return this.shape;
@@ -56,6 +59,7 @@ export class RotatingShape {
   }
   
   rotateLeft() {
+
     if (this.shape.split("I").length > 3){
       return this.rotateI();
     }
