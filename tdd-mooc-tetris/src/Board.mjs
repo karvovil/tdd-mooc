@@ -68,7 +68,9 @@ export class Board {
     this.shape = (typeof block === 'string') ?
       new RotatingShape(block) : block;
 
-    this.position = { x: (this.center() - Math.floor((this.shape.toString().split("\n").length)/2))+1, y: 0 };
+    const yCoord = (typeof block === 'string') ? 0 : -1
+
+    this.position = { x: (this.center() - Math.floor((this.shape.toString().split("\n").length)/2))+1, y: yCoord };
     this.falling = true;
   }
 
