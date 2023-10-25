@@ -61,5 +61,23 @@ describe("Rotating falling tetromino", () => {
     board.rotateLeft();
     expect(board.toString()).to.equalShape(shape);
   })
-  
+
+  it("does wall kick on left wall", () => {
+    board.drop(Tetromino.T_SHAPE);
+    board.rotateRight();
+    board.moveLeft();
+    board.moveLeft();
+    board.moveLeft();
+    board.moveLeft();
+    board.rotateLeft();
+
+    expect(board.toString()).to.equalShape(
+      `.T........
+       TTT.......
+       ..........
+       ..........
+       ..........
+       ..........`
+    );
+  })
 });
