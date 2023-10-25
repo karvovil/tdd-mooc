@@ -21,7 +21,6 @@ export class Board {
   }
   
   shapeToBoard(shape, position){
-    console.log(this.board);
     if (!shape || !position){
       return this.board
     }
@@ -48,9 +47,9 @@ export class Board {
     return newBoard;
   }
 
-  collision(newPosition){
+  collision(newShape, newPosition){
     return (this.shapeToBoard(this.shape, this.position).split(".").length
-    < this.shapeToBoard(this.shape, newPosition).split(".").length)
+    < this.shapeToBoard(newShape, newPosition).split(".").length)
   }
   drop(block){
     if(this.falling) {
@@ -68,7 +67,7 @@ export class Board {
       x: this.position.x,
       y: this.position.y+1
     };
-    if (this.collision(nextPosition)){
+    if (this.collision(this.shape, nextPosition)){
       this.falling = false;
       this.board = this.shapeToBoard(this.shape, this.position)
       this.position = {}
@@ -82,7 +81,7 @@ export class Board {
       x: this.position.x -1,
       y: this.position.y
     }
-    if(!this.collision(newPosition)){
+    if(!this.collision(this.shape, newPosition)){
       this.position = newPosition
     } 
   }
@@ -91,15 +90,19 @@ export class Board {
       x: this.position.x +1,
       y: this.position.y
     }
-    if(!this.collision(newPosition)){
+    if(!this.collision(this.shape, newPosition)){
       this.position = newPosition
     } 
   }
   rotateLeft(){
-    this.shape = this.shape.rotateLeft();
+    if(!this.collision(this.shape.rotateLeft(), this.position)){
+      this.shape = this.shape.rotateLeft();
+    }
   }
   rotateRight(){
-    this.shape = this.shape.rotateRight();
+    if(!this.collision(this.shape.rotateRight(), this.position)){
+      this.shape = this.shape.rotateRight();
+    }
   }
 
   center(){
