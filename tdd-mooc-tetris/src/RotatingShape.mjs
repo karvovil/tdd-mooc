@@ -58,7 +58,6 @@ export class RotatingShape {
       return new RotatingShape(this.rotations[newIndex])
     }
   }
-  
   rotateLeft() {
     const newIndex = 
       this.rotationIndex === (this.rotations.length -1)
@@ -69,22 +68,6 @@ export class RotatingShape {
         this.rotations[newIndex]
         )
       }
-      console.log('NOOOOOOOOO');
-
-    if (this.shape.split("I").length > 3){
-      return this.rotateI();
-    }
-    if (this.shape.split("O").length > 3){
-      return this;
-    }
-    const lines = this.shape.split("\n");
-    let rotatedLines = [];
-    for(let i = lines.length -2; i >= 0; i--){
-      rotatedLines.push(
-        lines.reduce((a, l) => a + l.charAt(i), '') + '\n'
-      );
-    }
-    return new RotatingShape(rotatedLines.join(''));
   }
   rotateI(){
     return this.shape === '..I..\n..I..\n..I..\n..I..\n.....\n'
