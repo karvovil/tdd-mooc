@@ -45,7 +45,7 @@ describe("Rotating falling tetromino", () => {
        ..........`
     );
   })
-  xit("can't be rotated if no space", () => {
+  it("can't be rotated if no space", () => {
     board.drop(Tetromino.T_SHAPE);
     board.tick();
     board.rotateLeft();
@@ -53,6 +53,7 @@ describe("Rotating falling tetromino", () => {
     board.moveLeft();
     fallToBottom(board);
     board.drop(Tetromino.T_SHAPE);
+    board.tick();
     board.rotateLeft();
     board.moveLeft();
     board.moveLeft();
@@ -61,6 +62,15 @@ describe("Rotating falling tetromino", () => {
     board.tick();
     board.tick();
     board.tick();
+
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       ..........
+       T.T.......
+       TTTT......
+       T.T.......`
+    );
     board.rotateLeft()
 
     expect(board.toString()).to.equalShape(
