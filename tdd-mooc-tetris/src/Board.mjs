@@ -1,5 +1,5 @@
 import { RotatingShape } from "./RotatingShape.mjs";
-import { Tetromino } from "./Tetromino.mjs";
+import { AfricaTetromino } from "./AfricaTetromino.mjs";
 
 export class Board {
   width;
