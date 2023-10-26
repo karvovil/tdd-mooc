@@ -41,6 +41,15 @@ export class RotatingShape {
     return {name, coords}
   }
   rotateRight() {
+    const newIndex = 
+    this.rotationIndex === 0
+    ? this.rotations.length -1 : (this.rotationIndex -1)
+
+  if (this.rotations){
+    return new RotatingShape(
+      this.rotations[newIndex]
+      )
+    }
     if (this.shape.split("I").length > 3){
       return this.rotateI();
     }
@@ -66,8 +75,8 @@ export class RotatingShape {
     if (this.rotations){
       return new RotatingShape(
         this.rotations[newIndex]
-      )
-    }
+        )
+      }
 
     if (this.shape.split("I").length > 3){
       return this.rotateI();
