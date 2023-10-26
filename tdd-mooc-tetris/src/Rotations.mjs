@@ -12,6 +12,6 @@ export class Rotations {
     `..I.\n..I.\n..I.\n..I.\n`
     ]
   static O_ROTATIONS = [
-    `....\n.OO.\n.OO.\n....`
+    `....\n.OO.\n.OO.\n....\n`
   ] 
 }
