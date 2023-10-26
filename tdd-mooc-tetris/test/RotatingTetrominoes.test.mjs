@@ -71,7 +71,6 @@ describe("The I shape", () => {
   });
 
   it("can be rotated left/counter-clockwise", () => {
-    console.log(shape);
     expect(shape.rotateLeft().toString()).to.equalShape(
       `..I.
        ..I.
