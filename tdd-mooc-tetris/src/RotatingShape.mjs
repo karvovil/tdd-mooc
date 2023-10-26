@@ -59,6 +59,15 @@ export class RotatingShape {
   }
   
   rotateLeft() {
+    const newIndex = 
+      this.rotationIndex === (this.rotations.length -1)
+      ? 0 : (this.rotationIndex +1)
+
+    if (this.rotations){
+      return new RotatingShape(
+        this.rotations[newIndex]
+      )
+    }
 
     if (this.shape.split("I").length > 3){
       return this.rotateI();
