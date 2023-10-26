@@ -19,7 +19,7 @@ describe("Rotating falling tetromino", () => {
 
 
   })
-  xit("can be rotated left", () => {
+  it("can be rotated left", () => {
     board.drop(Tetromino.T_SHAPE);
     board.tick();
     board.rotateLeft();
@@ -32,13 +32,13 @@ describe("Rotating falling tetromino", () => {
        ..........`
     );
   })
-  xit("can be rotated right", () => {
+  it("can be rotated right", () => {
     board.drop(Tetromino.T_SHAPE);
     board.tick();
     board.rotateRight();
     expect(board.toString()).to.equalShape(
       `....T.....
-       ...TT....
+       ...TT.....
        ....T.....
        ..........
        ..........
