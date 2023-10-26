@@ -15,10 +15,19 @@ export class RotatingShape {
     }
     this.shape = newStr
 
-    this.rotations = str.includes('I') ? Rotations.I_ROTATIONS : [];
-    this.rotations = str.includes('O') ? Rotations.O_ROTATIONS : [];
-    this.rotations = str.includes('T') ? Rotations.T_ROTATIONS : [];
-
+    switch(str.match(/[a-zA-Z]/).pop()){
+      case 'I':
+        this.rotations = Rotations.I_ROTATIONS;
+        break;
+      case 'T':
+        this.rotations = Rotations.T_ROTATIONS;
+        break;
+      case 'O':
+        this.rotations = Rotations.O_ROTATIONS;
+        break;
+      default:
+        this.rotations = []
+}
     this.rotationIndex = this.rotations.indexOf(this.shape)
   };
 
@@ -45,11 +54,10 @@ export class RotatingShape {
     this.rotationIndex === 0
     ? this.rotations.length -1 : (this.rotationIndex -1)
 
-  if (this.rotations){
-    return new RotatingShape(
-      this.rotations[newIndex]
-      )
+    if (this.rotations){
+      return new RotatingShape(this.rotations[newIndex])
     }
+    console.log('NOOOOOOOOO');
     if (this.shape.split("I").length > 3){
       return this.rotateI();
     }
@@ -77,6 +85,7 @@ export class RotatingShape {
         this.rotations[newIndex]
         )
       }
+      console.log('NOOOOOOOOO');
 
     if (this.shape.split("I").length > 3){
       return this.rotateI();
