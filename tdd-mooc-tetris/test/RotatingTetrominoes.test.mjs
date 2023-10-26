@@ -90,7 +90,7 @@ describe("The I shape", () => {
 describe("The O shape", () => {
   const shape = AfricaTetromino.O_SHAPE;
 
-  xit("initial orientation", () => {
+  it("initial orientation", () => {
     expect(shape.toString()).to.equalShape(
       `....
        .OO.
@@ -99,7 +99,7 @@ describe("The O shape", () => {
     );
   });
 
-  xit("cannot be rotated right/clockwise", () => {
+  it("cannot be rotated right/clockwise", () => {
     expect(shape.toString()).to.equalShape(
       `....
        .OO.
@@ -108,7 +108,7 @@ describe("The O shape", () => {
     );
   });
 
-  xit("cannot be rotated left/counter-clockwise", () => {
+  it("cannot be rotated left/counter-clockwise", () => {
     expect(shape.toString()).to.equalShape(
       `....
        .OO.
