@@ -57,22 +57,6 @@ export class RotatingShape {
     if (this.rotations){
       return new RotatingShape(this.rotations[newIndex])
     }
-    console.log('NOOOOOOOOO');
-    if (this.shape.split("I").length > 3){
-      return this.rotateI();
-    }
-    if (this.shape.split("O").length > 3){
-      return this;
-    }
-    const lines = this.shape.split("\n");
-    let rotatedLines = [];
-    for(let i = 0; i < lines.length-1; i++){
-      rotatedLines.push(
-        lines.reduce((a, l) =>  a + l.charAt(i), '')
-        .split('').reverse().join('')  + '\n'
-      );
-    }
-    return new RotatingShape(rotatedLines.join(''));
   }
   
   rotateLeft() {
