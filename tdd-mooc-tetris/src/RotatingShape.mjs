@@ -27,13 +27,14 @@ export class RotatingShape {
         break;
       default:
         this.rotations = []
-}
+    }
     this.rotationIndex = this.rotations.indexOf(this.shape)
   };
 
   toString(){
     return this.shape;
   }
+
   toBlock(){
     const rows = this.shape.split("\n");
     let coords = [];
@@ -49,6 +50,7 @@ export class RotatingShape {
     }
     return {name, coords}
   }
+
   rotateRight() {
     const newIndex = 
     this.rotationIndex === 0
@@ -58,6 +60,7 @@ export class RotatingShape {
       return new RotatingShape(this.rotations[newIndex])
     }
   }
+
   rotateLeft() {
     const newIndex = 
       this.rotationIndex === (this.rotations.length -1)
@@ -66,12 +69,7 @@ export class RotatingShape {
     if (this.rotations){
       return new RotatingShape(
         this.rotations[newIndex]
-        )
-      }
-  }
-  rotateI(){
-    return this.shape === '..I..\n..I..\n..I..\n..I..\n.....\n'
-      ? new RotatingShape('.....\n.....\nIIII.\n.....\n.....\n')
-      : new RotatingShape('..I..\n..I..\n..I..\n..I..\n.....\n')
+      )
+    }
   }
 }
