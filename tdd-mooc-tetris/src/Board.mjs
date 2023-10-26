@@ -1,5 +1,4 @@
 import { RotatingShape } from "./RotatingShape.mjs";
-import { Tetromino } from "./Tetromino.mjs";
 
 export class Board {
   width;
@@ -15,41 +14,16 @@ export class Board {
     this.falling = false;
     this.board = (".".repeat(width) +'\n').repeat(height);
   }
+
   setBoard(board){
     this.board = board;
     this.falling = false;
     this.shape = {};
     this.position = {};
   }
+
   toString() {    
     return this.shapeToBoard(this.shape, this.position)
-  }
-  
-  shapeToBoard(shape, position){
-    if (!shape || !position){
-      return this.board
-    }
-    let newBoard = '';
-    const boardRows = this.board.split("\n");
-    const shapeRows = shape?.toString().split("\n");
-    const shapelength = shapeRows.length -1
-    for (let y = 0; y < this.height; y++) {
-      for (let x = 0; x < this.width; x++) {
-        const shapeChar = shapeRows[y - position.y]?.charAt(x - position.x);
-        const boardChar = boardRows[y].charAt(x)
-        if(
-          x >= position?.x && x < position.x + shapelength &&
-          y >= position.y && y < position.y + shapelength &&
-          shapeChar != '.'
-        ){
-          newBoard += shapeChar
-        }else{
-          newBoard += boardChar;
-        }
-      }
-      newBoard += '\n';
-    }
-    return newBoard;
   }
 
   changeBoard(shape, position){
@@ -60,19 +34,16 @@ export class Board {
     }
     return false;
   }
-  collision(newShape, newPosition){
-    return (this.shapeToBoard(this.shape, this.position).split(".").length
-    < this.shapeToBoard(newShape, newPosition).split(".").length)
-  }
+
   drop(block){
     if(this.falling) {
       throw new Error("already falling");
     }
     this.shape = (typeof block === 'string') ?
-      new RotatingShape(block) : block;
-
+    new RotatingShape(block) : block;
+    
     const yCoord = (typeof block === 'string') ? 0 : -1
-
+    
     this.position = { x: (this.center() - Math.floor((this.shape.toString().split("\n").length)/2))+1, y: yCoord };
     this.falling = true;
   }
@@ -91,6 +62,34 @@ export class Board {
       this.position = nextPosition;
     }
   }
+  
+  shapeToBoard(shape, position){
+    if (!shape || !position){
+      return this.board
+    }
+    let newBoard = '';
+    const boardRows = this.board.split("\n");
+    const shapeRows = shape?.toString().split("\n");
+    const shapelength = shapeRows.length -1
+    for (let y = 0; y < this.height; y++) {
+      for (let x = 0; x < this.width; x++) {
+        const shapeChar = shapeRows[y - position.y]?.charAt(x - position.x);
+        const boardChar = boardRows[y].charAt(x)
+        if(
+          x >= position?.x && x < position.x + shapelength &&
+          y >= position.y && y < position.y + shapelength &&
+          shapeChar != '.'
+          ){
+            newBoard += shapeChar
+          }else{
+          newBoard += boardChar;
+        }
+      }
+      newBoard += '\n';
+    }
+    return newBoard;
+  }
+  
   moveLeft(){
     const newPosition = {
       x: this.position.x -1,
@@ -98,6 +97,7 @@ export class Board {
     }
     this.changeBoard(this.shape, newPosition)
   }
+
   moveRight(){
     const newPosition = {
       x: this.position.x +1,
@@ -105,16 +105,19 @@ export class Board {
     }
     this.changeBoard(this.shape, newPosition)
   }
+
   rotateLeft(){
     if (!this.changeBoard(this.shape.rotateLeft(), this.position)){
       this.wallKick(this.shape.rotateLeft());
     }
   }
+
   rotateRight(){
     if (!this.changeBoard(this.shape.rotateRight(), this.position)){
       this.wallKick(this.shape.rotateRight());
     }
   }
+
   wallKick(rotatedShape){
     const oneRight = {
       x: this.position.x +1,
@@ -128,12 +131,19 @@ export class Board {
       this.changeBoard(rotatedShape, oneLeft);
     }
   }
-  center(){
-    return this.width % 2 == 0
-      ? Math.floor(this.width/2)-1
-      : Math.floor(this.width/2)
+
+  collision(newShape, newPosition){
+    return (this.shapeToBoard(this.shape, this.position).split(".").length
+    < this.shapeToBoard(newShape, newPosition).split(".").length)
   }
+  
   hasFalling(){
     return this.falling;
+  }
+
+  center(){
+    return this.width % 2 == 0
+    ? Math.floor(this.width/2)-1
+    : Math.floor(this.width/2)
   }
 }
