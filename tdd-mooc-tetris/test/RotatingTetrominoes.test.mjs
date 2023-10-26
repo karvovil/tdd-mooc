@@ -52,15 +52,14 @@ describe("The T shape", () => {
 });
 
 describe("The I shape", () => {
-  const shape = Tetromino.I_SHAPE;
+  const shape = AfricaTetromino.I_SHAPE;
 
   it("initial orientation", () => {
     expect(shape.toString()).to.equalShape(
-      `.....
-       .....
-       IIII.
-       .....
-       .....`
+      `....
+       IIII
+       ....
+       ....`
     );
   });
 
