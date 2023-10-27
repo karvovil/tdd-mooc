@@ -24,6 +24,12 @@ export class Board {
     this.subscribers.push(subscriber)
   }
 
+  notifySubscribers(){
+    this.subscribers.forEach(
+      s => s.update()
+    )
+  }
+
   toString() {    
     return this.shapeToBoard(this.shape, this.position)
   }
