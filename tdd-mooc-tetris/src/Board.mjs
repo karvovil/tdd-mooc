@@ -51,6 +51,7 @@ export class Board {
       this.board = this.shapeToBoard(this.shape, this.position)
       this.position = {}
       this.shape = {}
+      this.clearLines()
     }else{
       this.position = nextPosition;
     }
@@ -81,6 +82,19 @@ export class Board {
       newBoard += '\n';
     }
     return newBoard;
+  }
+
+  clearLines(){
+    let boardRows = this.board.split("\n");
+    let newBoard = '';
+    for (let y = 0; y < this.height; y++) {
+      if (boardRows[y].indexOf('.') < 0){
+        newBoard = ".".repeat(this.width) +'\n' + newBoard;
+      }else{
+        newBoard += boardRows[y] + '\n';
+      }
+    }
+    this.board = newBoard;
   }
   
   moveLeft(){
