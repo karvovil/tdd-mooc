@@ -14,6 +14,9 @@ export class Board {
     this.falling = false;
     this.board = (".".repeat(width) +'\n').repeat(height);
   }
+  setBoard(board){
+    this.board = board
+  }
 
   toString() {    
     return this.shapeToBoard(this.shape, this.position)
@@ -96,7 +99,7 @@ export class Board {
     }
     this.board = newBoard;
   }
-  
+
   moveLeft(){
     const newPosition = {
       x: this.position.x -1,
