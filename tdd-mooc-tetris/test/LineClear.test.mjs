@@ -34,5 +34,32 @@ describe("Line filling tetrimino", () => {
        ........OO`
     );
   })
+  it("clears two lines", () => {
+    board.setBoard('..........\n..........\n..........\n..........\nIIIIIIII..\nIIIIIIII..\n');
+    
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       ..........
+       ..........
+       IIIIIIII..
+       IIIIIIII..`
+    );
+    board.drop(Tetromino.O_SHAPE);
+    board.moveRight();
+    board.moveRight();
+    board.moveRight();
+    board.moveRight();
+    fallToBottom(board);
+
+    expect(board.toString()).to.equalShape(
+      `..........
+       ..........
+       ..........
+       ..........
+       ..........
+       ..........`
+    );
+  })
 
 });
