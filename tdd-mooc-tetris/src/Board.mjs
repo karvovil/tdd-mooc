@@ -7,15 +7,21 @@ export class Board {
   shape;
   position;
   board;
+  subscribers;
 
   constructor(width, height) {
     this.width = width;
     this.height = height;
     this.falling = false;
     this.board = (".".repeat(width) +'\n').repeat(height);
+    this.subscribers = [];
   }
   setBoard(board){
     this.board = board
+  }
+
+  addSubscriber(subscriber){
+    this.subscribers.push(subscriber)
   }
 
   toString() {    
