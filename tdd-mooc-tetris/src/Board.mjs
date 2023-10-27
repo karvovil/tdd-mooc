@@ -24,9 +24,9 @@ export class Board {
     this.subscribers.push(subscriber)
   }
 
-  notifySubscribers(){
+  notifySubscribers(linesCleared){
     this.subscribers.forEach(
-      s => s.update()
+      s => s.update(linesCleared)
     )
   }
 
@@ -67,7 +67,6 @@ export class Board {
       this.position = {}
       this.shape = {}
       this.clearLines()
-      this.notifySubscribers();
     }else{
       this.position = nextPosition;
     }
@@ -103,13 +102,16 @@ export class Board {
   clearLines(){
     let boardRows = this.board.split("\n");
     let newBoard = '';
+    let linesCleared = 0;
     for (let y = 0; y < this.height; y++) {
       if (boardRows[y].indexOf('.') < 0){
         newBoard = ".".repeat(this.width) +'\n' + newBoard;
+        linesCleared++;
       }else{
         newBoard += boardRows[y] + '\n';
       }
     }
+    this.notifySubscribers(linesCleared);
     this.board = newBoard;
   }
 
