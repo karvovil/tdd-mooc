@@ -15,14 +15,8 @@ describe("Line filling tetrimino", () => {
   });
 
   it("clears a line", () => {
-    board.drop(Tetromino.I_SHAPE);
-    board.moveLeft();
-    board.moveLeft();
-    board.moveLeft();
-    fallToBottom(board)
-    board.drop(Tetromino.I_SHAPE);
-    board.moveRight();
-    fallToBottom(board)
+    board.setBoard(
+      '..........\n..........\n..........\n..........\n..........\nIIIIIIII..\n');
     
     board.drop(Tetromino.O_SHAPE);
     board.moveRight();
