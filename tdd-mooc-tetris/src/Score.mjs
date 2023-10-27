@@ -13,6 +13,9 @@ export class Score {
       case 2:
         this.score += 100;
         break;
+      case 3:
+        this.score += 300;
+        break;
       default:
         this.score += 0;
     }  
