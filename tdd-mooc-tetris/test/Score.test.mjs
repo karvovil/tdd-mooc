@@ -32,35 +32,18 @@ describe("Score", () => {
     board.moveRight();
     board.moveRight();
     fallToBottom(board)
-    console.log((score.getScore()));
     expect(score.getScore()).to.equal(40);
   })
-  xit("increases 2 with two line clears", () => {
+  it("increases by 100 with two line clears", () => {
     board.setBoard('..........\n..........\n..........\n..........\nIIIIIIII..\nIIIIIIII..\n');
-    
-    expect(board.toString()).to.equalShape(
-      `..........
-       ..........
-       ..........
-       ..........
-       IIIIIIII..
-       IIIIIIII..`
-    );
     board.drop(Tetromino.O_SHAPE);
     board.moveRight();
     board.moveRight();
     board.moveRight();
     board.moveRight();
     fallToBottom(board);
+    expect(score.getScore()).to.equal(100);
 
-    expect(board.toString()).to.equalShape(
-      `..........
-       ..........
-       ..........
-       ..........
-       ..........
-       ..........`
-    );
   })
 
 });
