@@ -3,6 +3,12 @@ import { Board } from "../src/Board.mjs";
 import { Score } from "../src/Score.mjs";
 import { Tetromino } from "../src/Tetromino.mjs";
 
+function fallToBottom(board) {
+  for (let i = 0; i < 10; i++) {
+    board.tick();
+  }
+}
+
 describe("Score", () => {
   let board;
   let score;
@@ -13,9 +19,10 @@ describe("Score", () => {
   });
 
   it("starts from zero", () => {
-    expect(score.getScore() === 0)
+    expect(score.getScore()).to.equal(0);
   })
-  xit("increases with line clear", () => {
+
+  it("increases with line clear", () => {
     board.setBoard(
       '..........\n..........\n..........\n..........\n..........\nIIIIIIII..\n');
     
@@ -25,17 +32,10 @@ describe("Score", () => {
     board.moveRight();
     board.moveRight();
     fallToBottom(board)
-
-    expect(board.toString()).to.equalShape(
-      `..........
-       ..........
-       ..........
-       ..........
-       ..........
-       ........OO`
-    );
+    console.log((score.getScore()));
+    expect(score.getScore()).to.equal(40);
   })
-  xit("increases correctly with two line clears", () => {
+  xit("increases 2 with two line clears", () => {
     board.setBoard('..........\n..........\n..........\n..........\nIIIIIIII..\nIIIIIIII..\n');
     
     expect(board.toString()).to.equalShape(
