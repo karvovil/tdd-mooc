@@ -19,10 +19,9 @@ export class Score {
       case 4:
         this.score += 1200;
         break;
-      default:
-        this.score += 0;
     }  
   }
+  
   getScore(){
     return this.score;
   }
