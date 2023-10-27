@@ -13,7 +13,7 @@ describe("Score", () => {
   let board;
   let score;
   beforeEach(() => {
-    board = new Board(10,7);
+    board = new Board(10,8);
     score = new Score();
     board.addSubscriber(score);
   });
@@ -24,7 +24,7 @@ describe("Score", () => {
 
   it("increases with line clear", () => {
     board.setBoard(
-      '..........\n..........\n..........\n..........\n..........\n..........\nIIIIIIII..\n');
+      '..........\n..........\n..........\n..........\n..........\n..........\n..........\nIIIIIIII..\n');
     
     board.drop(Tetromino.O_SHAPE);
     board.moveRight();
@@ -35,7 +35,7 @@ describe("Score", () => {
     expect(score.getScore()).to.equal(40);
   })
   it("increases by 100 with two line clears", () => {
-    board.setBoard('..........\n..........\n..........\n..........\n..........\nIIIIIIII..\nIIIIIIII..\n');
+    board.setBoard('..........\n..........\n..........\n..........\n..........\n..........\nIIIIIIII..\nIIIIIIII..\n');
     board.drop(Tetromino.O_SHAPE);
     board.moveRight();
     board.moveRight();
@@ -46,7 +46,7 @@ describe("Score", () => {
 
   })
   it("increases by 300 with three line clears", () => {
-    board.setBoard('..........\n..........\n..........\n..........\nIIIIIIIII.\nIIIIIIIII.\nIIIIIIIII.\n');
+    board.setBoard('..........\n..........\n..........\n..........\n..........\nIIIIIIIII.\nIIIIIIIII.\nIIIIIIIII.\n');
     board.drop(Tetromino.I_SHAPE);
     board.tick();
     board.rotateRight()
@@ -56,6 +56,20 @@ describe("Score", () => {
     board.moveRight();
     fallToBottom(board);
     expect(score.getScore()).to.equal(300);
+
+  })
+  it("increases by 1200 with three line clears", () => {
+    board.setBoard('..........\n..........\n..........\n..........\nIIIIIIIII.\nIIIIIIIII.\nIIIIIIIII.\nIIIIIIIII.\n');
+    board.drop(Tetromino.I_SHAPE);
+    board.tick();
+    board.rotateRight()
+    board.moveRight();
+    board.moveRight();
+    board.moveRight();
+    board.moveRight();
+    console.log(board.toString());
+    fallToBottom(board);
+    expect(score.getScore()).to.equal(1200);
 
   })
 
