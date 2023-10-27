@@ -32,6 +32,7 @@ describe("Score", () => {
     board.moveRight();
     board.moveRight();
     fallToBottom(board)
+    
     expect(score.getScore()).to.equal(40);
   })
   it("increases by 100 with two line clears", () => {
@@ -42,8 +43,8 @@ describe("Score", () => {
     board.moveRight();
     board.moveRight();
     fallToBottom(board);
-    expect(score.getScore()).to.equal(100);
 
+    expect(score.getScore()).to.equal(100);
   })
   it("increases by 300 with three line clears", () => {
     board.setBoard('..........\n..........\n..........\n..........\n..........\nIIIIIIIII.\nIIIIIIIII.\nIIIIIIIII.\n');
@@ -55,10 +56,10 @@ describe("Score", () => {
     board.moveRight();
     board.moveRight();
     fallToBottom(board);
-    expect(score.getScore()).to.equal(300);
 
+    expect(score.getScore()).to.equal(300);
   })
-  it("increases by 1200 with three line clears", () => {
+  it("increases by 1200 with four line clears", () => {
     board.setBoard('..........\n..........\n..........\n..........\nIIIIIIIII.\nIIIIIIIII.\nIIIIIIIII.\nIIIIIIIII.\n');
     board.drop(Tetromino.I_SHAPE);
     board.tick();
@@ -69,8 +70,8 @@ describe("Score", () => {
     board.moveRight();
     console.log(board.toString());
     fallToBottom(board);
-    expect(score.getScore()).to.equal(1200);
 
+    expect(score.getScore()).to.equal(1200);
   })
 
 });
