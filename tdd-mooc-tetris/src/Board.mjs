@@ -67,6 +67,7 @@ export class Board {
       this.position = {}
       this.shape = {}
       this.clearLines()
+      this.notifySubscribers();
     }else{
       this.position = nextPosition;
     }
