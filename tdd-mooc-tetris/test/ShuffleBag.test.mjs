@@ -13,4 +13,9 @@ describe("ShuffleBag that has one value", () => {
     expect(bag.pull()).to.equal(Tetromino.T_SHAPE);
   })
 
+  it("gives out the value twice", () => {
+    expect(bag.pull()).to.equal(Tetromino.T_SHAPE);
+    expect(bag.pull()).to.equal(Tetromino.T_SHAPE);
+  })
+
 });
