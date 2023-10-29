@@ -68,7 +68,6 @@ describe("Score", () => {
     board.moveRight();
     board.moveRight();
     board.moveRight();
-    console.log(board.toString());
     fallToBottom(board);
 
     expect(score.getScore()).to.equal(1200);
