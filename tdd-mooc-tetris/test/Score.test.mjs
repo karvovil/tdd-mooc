@@ -15,7 +15,7 @@ describe("Score", () => {
   beforeEach(() => {
     board = new Board(10,8);
     score = new ScoringSystem();
-    board.addSubscriber(score);
+    board.addScoring(score);
   });
 
   it("starts from zero", () => {

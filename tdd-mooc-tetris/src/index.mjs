@@ -16,9 +16,7 @@ function initGame() {
   };
   game.scoring = new ScoringSystem();
   game.board = new Board(game.columns, game.rows);
-  game.board.onClearLine = (lineCount) => {
-    game.scoring.linesCleared(lineCount);
-  };
+  game.board.addScoring(game.scoring);
   game.tetrominoes = new ShuffleBag([
     Tetromino.I_SHAPE,
     Tetromino.T_SHAPE,

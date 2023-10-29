@@ -11,8 +11,8 @@ export class ScoringSystem {
     this.level++;
   }
 
-  update(linesCleared){
-    switch(linesCleared){
+  linesCleared(lineCount){
+    switch(lineCount){
       case 1:
         this.score += (this.level +1) * 40;
         break;

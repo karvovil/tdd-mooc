@@ -7,27 +7,20 @@ export class Board {
   shape;
   position;
   board;
-  subscribers;
+  scoring;
 
   constructor(width, height) {
     this.width = width;
     this.height = height;
     this.falling = false;
     this.board = (".".repeat(width) +'\n').repeat(height);
-    this.subscribers = [];
   }
   setBoard(board){
     this.board = board
   }
 
-  addSubscriber(subscriber){
-    this.subscribers.push(subscriber)
-  }
-
-  notifySubscribers(linesCleared){
-    this.subscribers.forEach(
-      s => s.update(linesCleared)
-    )
+  addScoring(scoring){
+    this.scoring = scoring;
   }
 
   toString() {    
@@ -104,16 +97,16 @@ export class Board {
   clearLines(){
     let boardRows = this.board.split("\n");
     let newBoard = '';
-    let linesCleared = 0;
+    let lineCount = 0;
     for (let y = 0; y < this.height; y++) {
       if (boardRows[y].indexOf('.') < 0){
         newBoard = ".".repeat(this.width) +'\n' + newBoard;
-        linesCleared++;
+        lineCount++;
       }else{
         newBoard += boardRows[y] + '\n';
       }
     }
-    this.notifySubscribers(linesCleared);
+    this.scoring?.linesCleared(lineCount);
     this.board = newBoard;
   }
 
