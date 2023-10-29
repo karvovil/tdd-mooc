@@ -8,6 +8,12 @@ export class ShuffleBag {
   }
 
   pull(){
-    return this.values.pop()
+    if (this.values.length === 0){
+      this.values = this.spent;
+      this.spent = [];
+    }
+    const popped = this.values.pop()
+    this.spent.push(popped);  
+    return popped;      
   }
 }
