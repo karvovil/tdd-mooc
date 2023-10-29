@@ -73,4 +73,17 @@ describe("Score", () => {
     expect(score.getScore()).to.equal(1200);
   })
 
+  it("increases by 200 with two line clears in level 2", () => {
+    score.nextLevel();
+    board.setBoard('..........\n..........\n..........\n..........\n..........\n..........\nIIIIIIII..\nIIIIIIII..\n');
+    board.drop(Tetromino.O_SHAPE);
+    board.moveRight();
+    board.moveRight();
+    board.moveRight();
+    board.moveRight();
+    fallToBottom(board);
+
+    expect(score.getScore()).to.equal(200);
+  })
+
 });
