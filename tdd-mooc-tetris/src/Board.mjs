@@ -71,7 +71,9 @@ export class Board {
       this.position = nextPosition;
     }
   }
-  
+  moveDown(){
+    this.tick();
+  }
   shapeToBoard(shape, position){
     if (!shape || !position){
       return this.board
@@ -160,6 +162,11 @@ export class Board {
   collision(newShape, newPosition){
     return (this.shapeToBoard(this.shape, this.position).split(".").length
     < this.shapeToBoard(newShape, newPosition).split(".").length)
+  }
+
+  cellAt(row, column){
+    return this.shapeToBoard(this.shape, this.position)
+      .split('\n')[row].charAt(column);
   }
 
   hasFalling(){
