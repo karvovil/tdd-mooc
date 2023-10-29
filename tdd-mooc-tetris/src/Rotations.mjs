@@ -14,4 +14,16 @@ export class Rotations {
   static O_ROTATIONS = [
     `....\n.OO.\n.OO.\n....\n`
   ] 
+  static L_ROTATIONS = [
+    `....\n.OO.\n.OO.\n....\n`
+  ] 
+  static J_ROTATIONS = [
+    `....\n.OO.\n.OO.\n....\n`
+  ] 
+  static S_ROTATIONS = [
+    `....\n.OO.\n.OO.\n....\n`
+  ] 
+  static Z_ROTATIONS = [
+    `....\n.OO.\n.OO.\n....\n`
+  ] 
 }
