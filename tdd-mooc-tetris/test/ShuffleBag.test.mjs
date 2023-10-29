@@ -44,12 +44,24 @@ describe("ShuffleBag that has three tetrinomes", () => {
     for(let i = 0; i < 100; i++){
       manyPulls.push(bag.pull());
     }
-    console.log(manyPulls);
     expect(manyPulls).to.include.members([
       Tetromino.T_SHAPE,
       Tetromino.I_SHAPE,
       Tetromino.O_SHAPE,
     ]);
+  })
+
+  it("has randomness", () => {
+    let manyPulls1 = [];
+    let manyPulls2 = [];
+
+    for(let i = 0; i < 100; i++){
+      manyPulls1.push(bag.pull());
+    }
+    for(let i = 0; i < 100; i++){
+      manyPulls2.push(bag.pull());
+    }
+    expect(manyPulls1).to.not.eql(manyPulls2);
   })
 
 
