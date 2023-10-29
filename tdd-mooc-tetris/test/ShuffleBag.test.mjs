@@ -10,12 +10,12 @@ describe("ShuffleBag that has one tetrinome", () => {
   });
 
   it("gives out the value", () => {
-    expect(bag.pull()).to.equal(Tetromino.T_SHAPE);
+    expect(bag.next()).to.equal(Tetromino.T_SHAPE);
   })
 
   it("gives out the value twice", () => {
-    expect(bag.pull()).to.equal(Tetromino.T_SHAPE);
-    expect(bag.pull()).to.equal(Tetromino.T_SHAPE);
+    expect(bag.next()).to.equal(Tetromino.T_SHAPE);
+    expect(bag.next()).to.equal(Tetromino.T_SHAPE);
   })
 
 });
@@ -32,7 +32,7 @@ describe("ShuffleBag that has three tetrinomes", () => {
   });
 
   it("gives out one of the tetrinomes", () => {
-    expect(bag.pull()).to.be.oneOf([
+    expect(bag.next()).to.be.oneOf([
       Tetromino.T_SHAPE,
       Tetromino.I_SHAPE,
       Tetromino.O_SHAPE,
@@ -42,7 +42,7 @@ describe("ShuffleBag that has three tetrinomes", () => {
   it("gives out all of the tetrinomes", () => {
     let manyPulls = [];
     for(let i = 0; i < 100; i++){
-      manyPulls.push(bag.pull());
+      manyPulls.push(bag.next());
     }
     expect(manyPulls).to.include.members([
       Tetromino.T_SHAPE,
@@ -56,10 +56,10 @@ describe("ShuffleBag that has three tetrinomes", () => {
     let manyPulls2 = [];
 
     for(let i = 0; i < 100; i++){
-      manyPulls1.push(bag.pull());
+      manyPulls1.push(bag.next());
     }
     for(let i = 0; i < 100; i++){
-      manyPulls2.push(bag.pull());
+      manyPulls2.push(bag.next());
     }
     expect(manyPulls1).to.not.eql(manyPulls2);
   })

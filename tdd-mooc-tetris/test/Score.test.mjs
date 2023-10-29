@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import { Board } from "../src/Board.mjs";
-import { ScoreSystem } from "../src/ScoreSystem.mjs";
+import { ScoringSystem } from "../src/ScoringSystem.mjs";
 import { Tetromino } from "../src/Tetromino.mjs";
 
 function fallToBottom(board) {
@@ -14,7 +14,7 @@ describe("Score", () => {
   let score;
   beforeEach(() => {
     board = new Board(10,8);
-    score = new ScoreSystem();
+    score = new ScoringSystem();
     board.addSubscriber(score);
   });
 

@@ -7,7 +7,7 @@ export class ShuffleBag {
     this.spent = [];
   }
 
-  pull(){
+  next(){
     if (this.values.length === 0){
       this.values = this.shuffle(this.spent);
       this.spent = [];

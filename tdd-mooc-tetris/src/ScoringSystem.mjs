@@ -1,4 +1,4 @@
-export class ScoreSystem {
+export class ScoringSystem {
   score;
 
   constructor() {
