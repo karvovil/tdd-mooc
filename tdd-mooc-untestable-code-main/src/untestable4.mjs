@@ -12,11 +12,11 @@ export class PostgresUserDao {
   }
 
   db = new pg.Pool({
-    user: process.env.PGUSER,
-    host: process.env.PGHOST,
-    database: process.env.PGDATABASE,
-    password: process.env.PGPASSWORD,
-    port: process.env.PGPORT,
+    user: process.env.PGUSER || 'untestable',
+    host: process.env.PGHOST || 'localhost',
+    database: process.env.PGDATABASE || 'untestable',
+    password: process.env.PGPASSWORD || 'secret',
+    port: process.env.PGPORT || 5432,
   });
 
   close() {
