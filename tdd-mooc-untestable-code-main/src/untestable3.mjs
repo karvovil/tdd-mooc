@@ -1,6 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { parse } from "csv-parse/sync";
-
+//let's put the test file to build folder and delete it when test is over
+// if test is interrupted and file persists, it's deleted on new build
 export async function parsePeopleCsv(filePath) {
   const csvData = await readFile(filePath, { encoding: "utf8" });
   const records = parse(csvData, {
