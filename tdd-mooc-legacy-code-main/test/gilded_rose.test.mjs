@@ -64,11 +64,19 @@ describe("Gilded Rose", () => {
     expect(items[0].quality).to.equal(55);
   });
 
-  it("concert pass quality", () => {
+  it("concert pass quality increases by one if sellin over 11", () => {
     const gildedRose = new Shop(
       [new Item("Backstage passes to a TAFKAL80ETC concert", 15, 2)
     ]);
     const items = gildedRose.updateQuality();
     expect(items[0].quality).to.equal(3);
+  });
+
+  it("Sulfuras wuality should stay the same", () => {
+    const gildedRose = new Shop(
+      [new Item("Sulfuras, Hand of Ragnaros", -1, 45)
+    ]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(45);
   });
 });
