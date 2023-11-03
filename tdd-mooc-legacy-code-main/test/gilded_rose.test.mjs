@@ -62,21 +62,21 @@ describe("Gilded Rose", () => {
 
   it("concert pass quality should increase", () => {
     const gildedRose = new Shop(
-      [new Item("Backstage passes to a TAFKAL80ETC concert", 15, 2)
+      [new Item("Backstage passes to a TAFKAL80ETC concert", 11, 2)
     ]);
     const items = gildedRose.updateQuality();
     expect(items[0].quality).to.equal(3);
   });
   it("concert pass quality should increase by 2", () => {
     const gildedRose = new Shop(
-      [new Item("Backstage passes to a TAFKAL80ETC concert", 9, 2)
+      [new Item("Backstage passes to a TAFKAL80ETC concert", 6, 2)
     ]);
     const items = gildedRose.updateQuality();
     expect(items[0].quality).to.equal(4);
   });
   it("concert pass quality should increase by 3", () => {
     const gildedRose = new Shop(
-      [new Item("Backstage passes to a TAFKAL80ETC concert", 4, 2)
+      [new Item("Backstage passes to a TAFKAL80ETC concert", 5, 2)
     ]);
     const items = gildedRose.updateQuality();
     expect(items[0].quality).to.equal(5);
@@ -110,7 +110,13 @@ describe("Gilded Rose", () => {
     const items = gildedRose.updateQuality();
     expect(items[0].sellIn).to.equal(7);
   });
-  
+  it("Sulfuras quality should stay the same when negative sellIn", () => {
+    const gildedRose = new Shop(
+      [new Item("Sulfuras, Hand of Ragnaros", -2, 80)
+    ]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(80);
+  });
 
 
 });
