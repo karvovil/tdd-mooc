@@ -8,7 +8,7 @@ describe("Gilded Rose", () => {
     expect(items[0].name).to.equal("foo");
   });
   it("empty items should be empty", () => {
-    const gildedRose = new Shop([]);
+    const gildedRose = new Shop();
     const items = gildedRose.updateQuality();
     expect(items).to.be.an('array').that.is.empty;
   });
@@ -18,6 +18,7 @@ describe("Gilded Rose", () => {
     ]);
     const items = gildedRose.updateQuality();
     expect(items[0].sellIn).to.equal(2);
+
   });
   it("should decrease items quality by two if sellIn has passed", () => {
     const gildedRose = new Shop(
@@ -25,6 +26,7 @@ describe("Gilded Rose", () => {
     ]);
     const items = gildedRose.updateQuality();
     expect(items[0].quality).to.equal(1);
+
   });
   it("items quality should not be negative", () => {
     const gildedRose = new Shop(
@@ -32,6 +34,7 @@ describe("Gilded Rose", () => {
     ]);
     const items = gildedRose.updateQuality();
     expect(items[0].quality).to.equal(0);
+
   });
   it("Aged Bries quality should increase", () => {
     const gildedRose = new Shop(
@@ -39,6 +42,22 @@ describe("Gilded Rose", () => {
     ]);
     const items = gildedRose.updateQuality();
     expect(items[0].quality).to.equal(4);
+    
+  });
+  it("Aged Bries quality should increase more", () => {
+    const gildedRose = new Shop(
+      [new Item("Aged Brie", 0, 3)
+    ]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(5);
+    
+  });
+  it("If Aged bries quality is 50, it won't increase", () => {
+    const gildedRose = new Shop(
+      [new Item("Aged Brie", 0, 50)
+    ]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(50);
   });
 
   it("concert pass quality should increase", () => {
@@ -71,7 +90,7 @@ describe("Gilded Rose", () => {
   });
   it("should set concert pass quality to 0", () => {
     const gildedRose = new Shop(
-      [new Item("Backstage passes to a TAFKAL80ETC concert", 0, 1)
+      [new Item("Backstage passes to a TAFKAL80ETC concert", 0, 33)
     ]);
     const items = gildedRose.updateQuality();
     expect(items[0].quality).to.equal(0);
@@ -92,19 +111,6 @@ describe("Gilded Rose", () => {
     expect(items[0].sellIn).to.equal(7);
   });
   
-  it("Aged brie quality should increase ", () => {
-    const gildedRose = new Shop(
-      [new Item("Aged Brie", 0, 45)
-    ]);
-    const items = gildedRose.updateQuality();
-    expect(items[0].quality).to.equal(47);
-  });
-  it("If Aged bries quality is 50, it won't increase", () => {
-    const gildedRose = new Shop(
-      [new Item("Aged Brie", 0, 50)
-    ]);
-    const items = gildedRose.updateQuality();
-    expect(items[0].quality).to.equal(50);
-  });
+
 
 });
