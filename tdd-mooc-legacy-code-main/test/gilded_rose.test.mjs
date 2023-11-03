@@ -39,4 +39,13 @@ describe("Gilded Rose", () => {
     const items = gildedRose.updateQuality();
     expect(items[0].quality).to.equal(5);
   });
+
+  it("Sulfuras quality should stay the same", () => {
+    const gildedRose = new Shop(
+      [new Item("Sulfuras, Hand of Ragnaros", 0, 3)
+    ]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(3);
+  });
+
 });
