@@ -19,4 +19,11 @@ services:
         - 5000:5000
     environment:
       - DB_URL=localhost/api/
- 
+  nginx:
+    image: nginx
+    volumes:
+      - type: bind
+        source: nginx.conf
+        target: /etc/nginx/nginx.conf
+    ports:
+      - 8080:80
