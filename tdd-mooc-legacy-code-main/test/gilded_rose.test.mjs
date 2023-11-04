@@ -118,5 +118,13 @@ describe("Gilded Rose", () => {
     expect(items[0].quality).to.equal(80);
   });
 
+  it("Conjuder item should degrade twice as fast", () => {
+    const gildedRose = new Shop(
+      [new Item("This is conjured", 5, 5, true)
+    ]);
+    const items = gildedRose.updateQuality();
+    expect(items[0].quality).to.equal(3);
+  });
+
 
 });
