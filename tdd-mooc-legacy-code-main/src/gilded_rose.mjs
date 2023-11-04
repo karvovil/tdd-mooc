@@ -32,6 +32,10 @@ export class Shop {
             this.items[i].quality++;
           }
           this.items[i].sellIn--
+
+          if (this.items[i].sellIn < 0) {
+            this.items[i].quality = 0;
+          }
           break;
         case "Sulfuras, Hand of Ragnaros":
           break;
@@ -56,7 +60,6 @@ export class Shop {
 
             }
           } else {
-            this.items[i].quality = 0;
           }
         } else {
           if (this.items[i].quality < 50) {
