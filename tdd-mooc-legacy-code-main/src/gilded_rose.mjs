@@ -16,10 +16,13 @@ export class Shop {
 
       switch (this.items[i].name) {
         case "Aged Brie":
+          this.items[i].sellIn--
           if (this.items[i].quality < 50) {
             this.items[i].quality++;
+            if (this.items[i].sellIn < 0) {
+              this.items[i].quality++;
+            }
           }
-          this.items[i].sellIn--
           break;
         case "Backstage passes to a TAFKAL80ETC concert":
           if (this.items[i].quality < 50) {
@@ -63,7 +66,7 @@ export class Shop {
           }
         } else {
           if (this.items[i].quality < 50) {
-            this.items[i].quality++;
+            
           }
         }
       }
