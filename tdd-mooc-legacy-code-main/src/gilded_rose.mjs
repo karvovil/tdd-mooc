@@ -21,7 +21,9 @@ export class Shop {
         case "Sulfuras, Hand of Ragnaros":
           break;
         default:
-          
+          if(this.items[i].quality > 0){
+            this.items[i].quality--;
+          }
           break;
       }
 
@@ -30,7 +32,6 @@ export class Shop {
         && this.items[i].quality > 0
         && this.items[i].name != "Sulfuras, Hand of Ragnaros"
       ) {
-        this.items[i].quality--;
       }else{
         if (this.items[i].quality < 50) {
           this.items[i].quality++;
