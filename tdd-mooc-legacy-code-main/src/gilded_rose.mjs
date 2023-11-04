@@ -40,6 +40,7 @@ export class Shop {
           break;
       }
 
+
       if (this.items[i].name != "Sulfuras, Hand of Ragnaros") {
         this.items[i].sellIn--
       }
