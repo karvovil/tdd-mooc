@@ -6,7 +6,7 @@ describe("Game", () => {
     expect(game('')).to.be.a('string');
   });
 
-  it("first line of input has only numbers and b, o and $ -chars", () => {
+  it("first line of input has only numbers and b, o, $ and ! -chars", () => {
     expect(() => game('abof\nb2o')).to.throw("not valid");
   });
   it("returns a string if input string is valid", () => {
