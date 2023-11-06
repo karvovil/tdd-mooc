@@ -1,8 +1,8 @@
 import { expect } from "chai";
-import { sum } from "../src/example.mjs";
+import { game } from "../src/example.mjs";
 
-describe("Example test fixture", () => {
-  it("Example test", () => {
-    expect(sum(1, 2)).to.equal(3);
+describe("Game", () => {
+  it("returns a string", () => {
+    expect(game('')).to.be.a('string');
   });
 });
