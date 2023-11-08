@@ -1,3 +1,7 @@
 export class GameState{
-    state;
+  state;
+
+  constructor(state){
+     this.state = state;
+  }
 }
