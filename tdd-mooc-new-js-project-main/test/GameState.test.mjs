@@ -26,7 +26,7 @@ describe("GameState", () => {
 
   it("toArray() returns array representation of state", () => {
     let gs = new GameState('b2o$o2b$o2b!')
-    expect(gs.toArray()).to.equal(['boo','obb','obb']);
+    expect(gs.toArray()).to.deep.equal(['boo','obb','obb']);
   });
 
 });
