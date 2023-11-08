@@ -14,4 +14,9 @@ describe("GameState", () => {
     )
   });
 
+  it("noNumbers() keeps the grid size same", () => {
+    let gs = new GameState('b2o$o2b$o2b!')
+    expect(gs.noNumbers().length).to.equal(15);
+  });
+
 });
