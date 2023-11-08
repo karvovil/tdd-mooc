@@ -1,3 +1,4 @@
+
 export class GameState{
   state;
 
@@ -10,6 +11,6 @@ export class GameState{
 	}
 
 	noNumbers(){
-		return this.state.replace(/[0-9]/g, '')
+		return this.state.replace(/\d+/g, match => 'b'.repeat(match)); 
 	}
 }
