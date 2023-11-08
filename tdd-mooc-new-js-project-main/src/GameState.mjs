@@ -8,4 +8,8 @@ export class GameState{
 	toString(){
 		return this.state;
 	}
+
+	noNumbers(){
+		return this.state.replace(/[0-9]/g, '')
+	}
 }
