@@ -11,6 +11,8 @@ export class GameState{
 	}
 
 	noNumbers(){
-		return this.state.replace(/\d+/g, match => 'b'.repeat(match-1)); 
+		return this.state.replace(/\d+./g, match =>
+		match.slice(-1).repeat(Number(match.slice(0, -1)))
+		); 
 	}
 }
