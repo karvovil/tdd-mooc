@@ -28,5 +28,10 @@ describe("GameState", () => {
     let gs = new GameState('b2o$o2b$o2b!')
     expect(gs.toArray()).to.deep.equal(['boo','obb','obb']);
   });
+  
+  it("arrayToNoNumbers() converts array to noNumbers representation", () => {
+    let gs = new GameState('b2o$o2b$o2b!')
+    expect(gs.arrayToNoNumbers(gs.toArray())).to.equal('boo$obb$obb!');
+  });
 
 });
