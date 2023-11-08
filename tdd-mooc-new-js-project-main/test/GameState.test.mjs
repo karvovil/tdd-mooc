@@ -24,4 +24,9 @@ describe("GameState", () => {
     expect(gs.noNumbers()).to.equal('boo$obb$obb!');
   });
 
+  it("toArray() returns array representation of state", () => {
+    let gs = new GameState('b2o$o2b$o2b!')
+    expect(gs.toArray()).to.equal(['boo','obb','obb']);
+  });
+
 });
