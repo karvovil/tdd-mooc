@@ -18,5 +18,10 @@ describe("GameState", () => {
     let gs = new GameState('b2o$o2b$o2b!')
     expect(gs.noNumbers().length).to.equal(12);
   });
+  
+  it("noNumbers() replaces numbers correctly", () => {
+    let gs = new GameState('b2o$o2b$o2b!')
+    expect(gs.noNumbers()).to.equal('boo$obb$obb!');
+  });
 
 });
