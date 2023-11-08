@@ -4,4 +4,8 @@ export class GameState{
   constructor(state){
      this.state = state;
   }
+
+	toString(){
+		return this.state;
+	}
 }
