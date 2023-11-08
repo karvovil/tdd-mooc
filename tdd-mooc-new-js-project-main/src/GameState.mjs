@@ -19,4 +19,8 @@ export class GameState{
 	toArray() {
 		return this.noNumbers().slice(0, -1).split('$')
 	}
+
+	arrayToNoNumbers(arr){
+		return arr.join('$') + '!'
+	}
 }
