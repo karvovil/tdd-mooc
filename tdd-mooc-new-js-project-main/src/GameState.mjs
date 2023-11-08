@@ -15,4 +15,8 @@ export class GameState{
 		match.slice(-1).repeat(Number(match.slice(0, -1)))
 		); 
 	}
+
+	toArray() {
+		return this.noNumbers().slice(0, -1).split('$')
+	}
 }
