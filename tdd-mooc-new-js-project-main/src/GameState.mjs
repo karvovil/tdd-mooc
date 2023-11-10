@@ -23,4 +23,10 @@ export class GameState{
 	arrayToNoNumbers(arr){
 		return arr.join('$') + '!'
 	}
+
+	noNumbersToString(nn){
+		return nn.replace(/([a-z])\1*\1/g, match =>
+		match.length + match.slice(1)
+		); 
+	}
 }
