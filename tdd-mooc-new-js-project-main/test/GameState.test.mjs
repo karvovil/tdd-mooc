@@ -34,7 +34,7 @@ describe("GameState", () => {
     expect(gs.toString()).to.equal('7b$7b$7b$7b$7b$7b$7b!');
   });
 
-  it("neighbours() should count number of neighbours of a cell", () => {
+  it("neighbours() should count number of alive neighbours of a cell", () => {
     let gs = new GameState('3b$3b$3b!')
     expect(gs.neighbours(0,0)).to.equal(0)
   });
