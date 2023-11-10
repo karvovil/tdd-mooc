@@ -11,9 +11,10 @@ export class GameState{
 	}
 
 	toArray() {
-		return this.state.replace(/\d+./g, match =>
+		const withNumbers =  this.state.replace(/\d+./g, match =>
 			match.slice(-1).repeat(Number(match.slice(0, -1)))
-		).slice(0, -1).split('$')
+		)
+		return withNumbers.slice(0, -1).split('$')
 	}
 
 	arrayToString(arr){
