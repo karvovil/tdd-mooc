@@ -24,6 +24,10 @@ export class GameState{
 		); 
 	}
 
+	neighbours(x,y){
+		return 0
+	}
+
 	tick(){
 		const rowLength = this.toArray()[0].length +2
 		const emptyRow = 'b'.repeat(rowLength)
