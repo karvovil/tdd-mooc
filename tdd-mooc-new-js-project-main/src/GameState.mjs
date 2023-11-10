@@ -18,8 +18,8 @@ export class GameState{
 	}
 
 	arrayToString(arr){
-		const nn = arr.join('$') + '!'
-		return nn.replace(/([a-z])\1*\1/g, match =>
+		const noNumbers = arr.join('$') + '!'
+		return noNumbers.replace(/([a-z])\1*\1/g, match =>
 			match.length + match.slice(-1)
 		); 
 	}
