@@ -32,7 +32,8 @@ export class GameState{
 
 	tick(){
 		const rowLength = this.toArray()[0].length
-		this.state = (rowLength + 'b' + '$').repeat(rowLength -1)
-			+ rowLength + 'b' + '!';
+		const emptyRow = 'b'.repeat(rowLength)
+		let emptyBoardArray = Array(rowLength).fill(emptyRow) 
+		this.state = this.noNumbersToString(this.arrayToNoNumbers(emptyBoardArray))
 	}
 }
