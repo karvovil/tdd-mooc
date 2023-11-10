@@ -7,13 +7,6 @@ describe("GameState", () => {
     expect(gs.toString()).to.be.a('string');
   });
 
-  it("noNumbers() removes numbers from RLE format", () => {
-    let gs = new GameState('b2o$o2b$o2b!')
-    expect(gs.noNumbers()).to.not.contain.oneOf(
-      ['0','1','2','3','4','5','6','7','8','9',]
-    )
-  });
-
   it("toArray() returns array representation of state", () => {
     let gs = new GameState('b2o$o2b$o2b!')
     expect(gs.toArray()).to.deep.equal(['boo','obb','obb']);
