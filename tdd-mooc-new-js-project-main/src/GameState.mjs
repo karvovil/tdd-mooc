@@ -10,12 +10,6 @@ export class GameState{
 		return this.state;
 	}
 
-	noNumbers(){
-		return this.state.replace(/\d+./g, match =>
-		match.slice(-1).repeat(Number(match.slice(0, -1)))
-		); 
-	}
-
 	toArray() {
 		return this.state.replace(/\d+./g, match =>
 			match.slice(-1).repeat(Number(match.slice(0, -1)))
