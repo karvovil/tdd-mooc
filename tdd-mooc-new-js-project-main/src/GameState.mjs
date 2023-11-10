@@ -29,4 +29,8 @@ export class GameState{
 		match.length + match.slice(-1)
 		); 
 	}
+
+	tick(){
+		this.state = '3b$3b$3b!';
+	}
 }
