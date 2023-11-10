@@ -30,10 +30,17 @@ export class GameState{
 		); 
 	}
 
+	arrayToString(arr){
+		const nn = arr.join('$') + '!'
+		return nn.replace(/([a-z])\1*\1/g, match =>
+			match.length + match.slice(-1)
+		); 
+	}
+
 	tick(){
 		const rowLength = this.toArray()[0].length
 		const emptyRow = 'b'.repeat(rowLength)
 		let emptyBoardArray = Array(rowLength).fill(emptyRow) 
-		this.state = this.noNumbersToString(this.arrayToNoNumbers(emptyBoardArray))
+		this.state = this.arrayToString(emptyBoardArray)
 	}
 }
