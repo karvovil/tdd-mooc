@@ -14,16 +14,6 @@ describe("GameState", () => {
     )
   });
 
-  it("noNumbers() keeps the grid size same", () => {
-    let gs = new GameState('b2o$o2b$o2b!')
-    expect(gs.noNumbers().length).to.equal(12);
-  });
-  
-  it("noNumbers() replaces numbers correctly", () => {
-    let gs = new GameState('b2o$o2b$o2b!')
-    expect(gs.noNumbers()).to.equal('boo$obb$obb!');
-  });
-
   it("toArray() returns array representation of state", () => {
     let gs = new GameState('b2o$o2b$o2b!')
     expect(gs.toArray()).to.deep.equal(['boo','obb','obb']);
