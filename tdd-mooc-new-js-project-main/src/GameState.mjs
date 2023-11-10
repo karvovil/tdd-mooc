@@ -25,10 +25,37 @@ export class GameState{
 	}
 
 	neighbours(x,y){
-		if (this.toArray()[0].charAt(0) === 'o') {
-			return 1
+		let neighbours = 0;
+		if (x-2 >= 0){
+			if (this.toArray()[y-2]?.charAt(x-2) === 'o') {
+				neighbours++
+			} 
+			if (this.toArray()[y-1]?.charAt(x-2) === 'o') {
+				neighbours++
+			} 
+			if (this.toArray()[y]?.charAt(x-2) === 'o') {
+				neighbours++
+			} 
+		}
+		
+		if (x-1 >= 0){
+			if (this.toArray()[y-2]?.charAt(x-1) === 'o') {
+				neighbours++
+			} 
+			if (this.toArray()[y]?.charAt(x-1) === 'o') {
+				neighbours++
+			}
 		} 
-		return 0
+		if (this.toArray()[y-2]?.charAt(x) === 'o') {
+			neighbours++
+		} 
+		if (this.toArray()[y-1]?.charAt(x) === 'o') {
+			neighbours++
+		} 
+		if (this.toArray()[y]?.charAt(x) === 'o') {
+			neighbours++
+		} 
+		return neighbours;
 	}
 
 	tick(){
