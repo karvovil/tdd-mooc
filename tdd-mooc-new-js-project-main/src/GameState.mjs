@@ -20,16 +20,6 @@ export class GameState{
 		return this.noNumbers().slice(0, -1).split('$')
 	}
 
-	arrayToNoNumbers(arr){
-		return arr.join('$') + '!'
-	}
-
-	noNumbersToString(nn){
-		return nn.replace(/([a-z])\1*\1/g, match =>
-		match.length + match.slice(-1)
-		); 
-	}
-
 	arrayToString(arr){
 		const nn = arr.join('$') + '!'
 		return nn.replace(/([a-z])\1*\1/g, match =>
