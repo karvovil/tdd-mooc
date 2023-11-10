@@ -31,6 +31,8 @@ export class GameState{
 	}
 
 	tick(){
-		this.state = '3b$3b$3b!';
+		const rowLength = this.toArray()[0].length
+		this.state = (rowLength + 'b' + '$').repeat(rowLength -1)
+			+ rowLength + 'b' + '!';
 	}
 }
