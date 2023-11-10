@@ -33,9 +33,15 @@ describe("GameState", () => {
     let gs = new GameState('b2o$o2b$o2b!')
     expect(gs.arrayToNoNumbers(gs.toArray())).to.equal('boo$obb$obb!');
   });
+
   it("NoNumbersToString() converts noNumbers representation to string", () => {
     let gs = new GameState('b2o$o2b$o2b!')
     expect(gs.noNumbersToString(gs.arrayToNoNumbers(gs.toArray()))).to.equal('b2o$o2b$o2b!');
+  });
+
+  it("NoNumbersToString() converts noNumbers to string", () => {
+    let gs = new GameState('b2o3b$3o2b$3bo2b!')
+    expect(gs.noNumbersToString(gs.arrayToNoNumbers(gs.toArray()))).to.equal('b2o3b$3o2b$3bo2b!');
   });
 
 });
