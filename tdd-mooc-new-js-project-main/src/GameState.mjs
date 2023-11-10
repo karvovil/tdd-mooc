@@ -25,7 +25,7 @@ export class GameState{
 	}
 
 	tick(){
-		const rowLength = this.toArray()[0].length
+		const rowLength = this.toArray()[0].length +2
 		const emptyRow = 'b'.repeat(rowLength)
 		let emptyBoardArray = Array(rowLength).fill(emptyRow) 
 		this.state = this.arrayToString(emptyBoardArray)
