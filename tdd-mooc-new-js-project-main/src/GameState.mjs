@@ -25,6 +25,9 @@ export class GameState{
 	}
 
 	neighbours(x,y){
+		if (this.toArray()[0].charAt(0) === 'o') {
+			return 1
+		} 
 		return 0
 	}
 
