@@ -44,4 +44,10 @@ describe("GameState", () => {
     expect(gs.noNumbersToString(gs.arrayToNoNumbers(gs.toArray()))).to.equal('b2o3b$3o2b$3bo2b!');
   });
 
+  it("tick() changes state to next generation of a dead board", () => {
+    let gs = new GameState('3b$3b$3b!')
+    gs.tick()
+    expect(gs.toString()).to.equal('3b$3b$3b!');
+  });
+
 });
