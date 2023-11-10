@@ -25,13 +25,13 @@ describe("GameState", () => {
   it("tick() changes state to next generation of a dead board", () => {
     let gs = new GameState('3b$3b$3b!')
     gs.tick()
-    expect(gs.toString()).to.equal('3b$3b$3b!');
+    expect(gs.toString()).to.equal('5b$5b$5b$5b$5b!');
   });
 
   it("tick() changes state to next generation of a 5x5 dead board", () => {
     let gs = new GameState('5b$5b$5b$5b$5b!')
     gs.tick()
-    expect(gs.toString()).to.equal('5b$5b$5b$5b$5b!');
+    expect(gs.toString()).to.equal('7b$7b$7b$7b$7b$7b$7b!');
   });
 
 });
