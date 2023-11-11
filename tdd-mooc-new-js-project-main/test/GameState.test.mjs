@@ -49,4 +49,9 @@ describe("GameState", () => {
     expect(gs.neighbours(1,0)).to.equal(2)
   });
 
+  it("neighbours() should count number of alive neighbours of a cell when eight are alive", () => {
+    let gs = new GameState('3o$3o$3o!')
+    expect(gs.neighbours(2,2)).to.equal(8)
+  });
+
 });
