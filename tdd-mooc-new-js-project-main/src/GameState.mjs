@@ -29,8 +29,8 @@ export class GameState{
 
 		for (let row = y-2; row <= y; row++) {
 			for (let column = x-2; column <= x; column++) {
-				if(column >= 0){
-					if (this.toArray()[row]?.charAt(column) === 'o'){
+				if(column >= 0 && (row !== y-1 || column !== x-1)){
+					if(this.toArray()[row]?.charAt(column) === 'o'){
 						neighbours++
 					}
 				}
