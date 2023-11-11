@@ -59,4 +59,17 @@ describe("GameState", () => {
     gs.tick()
     expect(gs.toString()).to.equal('4b$b2ob$b2ob$4b!');
   });
+  
+  it("isAlive () tells if cell is alive in previous generation", () => {
+    let gs = new GameState('2o$2o!')
+    expect(gs.isAlive(0,0)).to.equal(false);
+    expect(gs.isAlive(3,3)).to.equal(false);
+    expect(gs.isAlive(1,1)).to.equal(true);
+  });
+  
+/*   it("tick() changes state to next generation of a blinker pattern", () => {
+    let gs = new GameState('bob$bob$bob!')
+    gs.tick()
+    expect(gs.toString()).to.equal('5b$5b$b3ob$5b$5b!');
+  }); */
 });
