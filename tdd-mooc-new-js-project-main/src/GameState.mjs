@@ -41,8 +41,19 @@ export class GameState{
 
 	tick(){
 		const rowLength = this.toArray()[0].length +2
-		const emptyRow = 'b'.repeat(rowLength)
-		let emptyBoardArray = Array(rowLength).fill(emptyRow) 
-		this.state = this.arrayToString(emptyBoardArray)
+		let newState = [];
+		for (let row = 0; row < rowLength; row++) {
+			let newRow = ''
+			for (let column = 0; column < rowLength; column++) {
+				if(this.neighbours(column, row) === 3){
+					newRow = newRow + 'o';
+				}else{
+					newRow = newRow + 'b';
+				}
+			}
+			newState.push(newRow);
+		}
+		console.log(newState);
+		this.state = this.arrayToString(newState);
 	}
 }
