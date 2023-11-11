@@ -70,7 +70,6 @@ export class GameState{
 			}
 			newState.push(newRow);
 		}
-		console.log(newState);
 		this.state = this.arrayToString(newState);
 	}
 }
