@@ -72,4 +72,10 @@ describe("GameState", () => {
     gs.tick()
     expect(gs.toString()).to.equal('5b$5b$b3ob$5b$5b!');
   });
+
+  it("tick() changes state to next generation of a glider pattern", () => {
+    let gs = new GameState('bob$2bo$3o!')
+    gs.tick()
+    expect(gs.toString()).to.equal('5b$5b$bobob$2b2ob$2bo2b!');
+  });
 });
