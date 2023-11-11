@@ -49,10 +49,14 @@ export class GameState{
 	}
 
 	nextCell(x,y){
-		if(this.neighbours(x, y) === 3){
-			return 'o';
+		if (this.isAlive(x,y)){
+			if (this.neighbours(x,y) === 2 || this.neighbours(x,y) === 3){
+				return 'o';
+			}else{
+				return 'b'
+			}
 		}else{
-			return 'b';
+			return this.neighbours(x, y) === 3 ? 'o' : 'b';
 		}
 	}
 
