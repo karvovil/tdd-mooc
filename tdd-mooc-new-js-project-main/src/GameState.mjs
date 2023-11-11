@@ -39,6 +39,15 @@ export class GameState{
 		return neighbours;
 	}
 
+	isAlive(x,y){
+		if (this.toArray()[y-1]?.charAt(x-1)){
+			return this.toArray()[y-1]?.charAt(x-1) === 'o' ? true : false;
+		}else{
+			return false;
+		}
+
+	}
+
 	nextCell(x,y){
 		if(this.neighbours(x, y) === 3){
 			return 'o';
