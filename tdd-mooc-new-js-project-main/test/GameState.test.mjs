@@ -67,9 +67,9 @@ describe("GameState", () => {
     expect(gs.isAlive(1,1)).to.equal(true);
   });
   
-/*   it("tick() changes state to next generation of a blinker pattern", () => {
+  it("tick() changes state to next generation of a blinker pattern", () => {
     let gs = new GameState('bob$bob$bob!')
     gs.tick()
     expect(gs.toString()).to.equal('5b$5b$b3ob$5b$5b!');
-  }); */
+  });
 });
