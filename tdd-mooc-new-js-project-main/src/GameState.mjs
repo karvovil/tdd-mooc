@@ -39,17 +39,21 @@ export class GameState{
 		return neighbours;
 	}
 
+	nextCell(x,y){
+		if(this.neighbours(x, y) === 3){
+			return 'o';
+		}else{
+			return 'b';
+		}
+	}
+
 	tick(){
 		const rowLength = this.toArray()[0].length +2
 		let newState = [];
 		for (let row = 0; row < rowLength; row++) {
 			let newRow = ''
 			for (let column = 0; column < rowLength; column++) {
-				if(this.neighbours(column, row) === 3){
-					newRow = newRow + 'o';
-				}else{
-					newRow = newRow + 'b';
-				}
+					newRow = newRow + this.nextCell(column,row);
 			}
 			newState.push(newRow);
 		}
