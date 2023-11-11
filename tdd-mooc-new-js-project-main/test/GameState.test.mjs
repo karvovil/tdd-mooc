@@ -27,13 +27,13 @@ describe("GameState", () => {
     gs.tick()
     expect(gs.toString()).to.equal('5b$5b$5b$5b$5b!');
   });
-
+  
   it("tick() changes state to next generation of a 5x5 dead board", () => {
     let gs = new GameState('5b$5b$5b$5b$5b!')
     gs.tick()
     expect(gs.toString()).to.equal('7b$7b$7b$7b$7b$7b$7b!');
   });
-
+  
   it("neighbours() should count number of alive neighbours of a cell when none alive", () => {
     let gs = new GameState('3b$3b$3b!')
     expect(gs.neighbours(0,0)).to.equal(0)
@@ -43,15 +43,20 @@ describe("GameState", () => {
     let gs = new GameState('o2b$3b$3b!')
     expect(gs.neighbours(0,0)).to.equal(1)
   });
-
+  
   it("neighbours() should count number of alive neighbours of a cell when two are alive", () => {
     let gs = new GameState('2ob$3b$3b!')
     expect(gs.neighbours(1,0)).to.equal(2)
   });
-
+  
   it("neighbours() should count number of alive neighbours of a cell when eight are alive", () => {
     let gs = new GameState('3o$3o$3o!')
     expect(gs.neighbours(2,2)).to.equal(8)
   });
-
+  
+  it("tick() changes state to next generation of block pattern", () => {
+    let gs = new GameState('2o$2o!')
+    gs.tick()
+    expect(gs.toString()).to.equal('4b$b2ob$b2ob$4b!');
+  });
 });
