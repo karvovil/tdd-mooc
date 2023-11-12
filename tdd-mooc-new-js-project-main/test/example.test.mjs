@@ -8,9 +8,7 @@ const outFilePath = "./out.txt"
 
 describe("Game get's valid input", () => {
   beforeEach(() => {
-    if (!fs.existsSync('./build')){
-      fs.mkdirSync('./build');
-    }
+
     const inputContent = 'bob$2bo$3o!'
 
     fs.writeFile(inFilePath, inputContent, (err) => {
@@ -19,8 +17,6 @@ describe("Game get's valid input", () => {
   });
 
   afterEach(() => {
-    fs.unlinkSync(inFilePath);
-    fs.unlinkSync(outFilePath);
   });
   
   it("writes output correctly", async () => {
