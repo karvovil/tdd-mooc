@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  front:
+    build:
+      context: tdd-front
+      dockerfile: Dockerfile
+    image: front
+    ports:
+        - 3000:3000
+    environment:
+      - REACT_APP_BACKEND_URL=localhost/api/
+  back:
+    build:
+      context: tdd-back
+      dockerfile: Dockerfile
+    image: back
+    ports:
+        - 5000:5000
+    environment:
+      - DB_URL=localhost/api/
+  nginx:
+    image: nginx
+    volumes:
+      - type: bind
+        source: nginx.conf
+        target: /etc/nginx/nginx.conf
+    ports:
+      - 8080:80
