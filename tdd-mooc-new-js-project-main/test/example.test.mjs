@@ -29,6 +29,16 @@ describe("Game get's valid input", () => {
 
     expect(contents).to.equal('bob$2bo$3o!');
   });
+
+  it("writes output correctly after a tick", () => {
+    game(inFilePath, 1);
+    let contents;
+    try {
+      contents = fs.readFileSync(outFilePath, { encoding: "utf8" });
+    } catch (e) {console.log(e)}
+
+    expect(contents).to.equal('5b$5b$bobob$2b2ob$2bo2b!');
+  });
 });
 
 describe("Game get's invalid input", () => {
