@@ -16,6 +16,8 @@ describe("Game get's valid input", () => {
   });
 
   afterEach(() => {
+    fs.unlinkSync(inFilePath);
+    fs.unlinkSync(outFilePath);
   });
   
   it("writes output correctly", () => {
