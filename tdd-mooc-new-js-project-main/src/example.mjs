@@ -11,6 +11,9 @@ export function game(inFilePath, n) {
     throw new Error('not valid')
   }
   let gs = new GameState(contents);
+  for (let i = 0; i < n; i++) {
+    gs.tick();
+  }
 
   fs.writeFileSync(outFilePath, gs.toString(), (err) => {
     console.log(err || "done");
