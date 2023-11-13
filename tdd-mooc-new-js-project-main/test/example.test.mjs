@@ -31,7 +31,7 @@ describe("Game get's valid input", () => {
   });
 });
 
-/* describe("Game get's invalid input", () => {
+describe("Game get's invalid input", () => {
   let gs;
   beforeEach(() => {
     if (!fs.existsSync('./build')){
@@ -40,7 +40,7 @@ describe("Game get's valid input", () => {
     const inputContent = 
     'abof\nb2o'
 
-    fs.writeFile(inFilePath, inputContent, (err) => {
+    fs.writeFileSync(inFilePath, inputContent, (err) => {
       console.log(err || "done");
     });
   });
@@ -51,9 +51,9 @@ describe("Game get's valid input", () => {
   it("throws error", async () => {
     let contents;
     try {
-      contents = await readFile(outFilePath, { encoding: "utf8" });
+      contents = fs.readFileSync(outFilePath, { encoding: "utf8" });
     } catch (e) {console.log(e)}
 
     expect(() => game(inFilePath, 0)).to.throw("not valid");
   });
-}); */
+});
